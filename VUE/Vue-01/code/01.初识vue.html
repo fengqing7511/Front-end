@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--1.引入vue.js-->
+    <script src="./vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <!--3.在页面准备一个<div id="app"></div>   这个就是MVVM中的View-->
+    <div id="app">
+        <!--4.使用插值表达式将数据显示在页面-->
+        <ul>
+            <li v-for="item in fruits">{{item}}</li>
+        </ul>
+
+        <button @click="modify">点我修改</button>
+    </div>
+
+
+    <script>
+        //数据驱动
+        //2.vm就是MVVM中的ViewModel
+        var vm = new Vue({
+            //el是代码当前的vm实例控制的页面范围
+            el: "#app",
+            // data里面的数据就是MVVM中的Model
+            data: {
+                msg: "hello world",
+                age: 19,
+                fruits:['苹果','香蕉','梨']
+            },
+            methods:{
+                modify(){
+                    this.fruits  = ['苹果2','香蕉2','梨2']
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

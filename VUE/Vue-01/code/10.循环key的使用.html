@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--1.引入vue.js-->
+    <script src="./vue-2.4.0.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <!--当点击添加按钮的时候，把用户输入的人的信息添加到list数组-->
+        <input type="text" placeholder="请输入用户id" v-model="id">
+        <input type="text" placeholder="请输入用户名" v-model="name">
+        <input type="button" value="添加" @click="add">
+        <input type="button" value="测试过滤" @click="filter">
+
+        <!--:key的作用：用来标识元素的唯一性，一边追踪每一个节点的身份，从而实现元素的重新排序
+          需要注意的时候，在v-for的时候，我们推荐把key都写上去
+          key需要是兄弟元素之间唯一的，key只能够是字符串或者数字
+        -->
+        <ul>
+            <li v-for="item in list" :key="item.id">
+                <input type="checkbox"> {{item.id}} --> {{item.name}}
+            </li>
+        </ul>
+
+        <!--
+            默认情况下，数组的如下方法被调用的时候，会触发页面的更新
+            push()
+            pop()
+            shift()
+            unshift()
+            splice()
+            sort()
+            reverse()
+        -->
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                id: "",
+                name: "",
+                list: [
+                    { id: 1, name: '李斯' },
+                    { id: 2, name: '嬴政' },
+                    { id: 3, name: '赵高' },
+                    { id: 4, name: '韩非' },
+                    { id: 5, name: '荀子' }
+                ]
+            },
+            methods: {
+                add() {
+                    if (this.id && this.name) {
+                        var obj = {
+                            id: this.id,
+                            name: this.name
+                        }
+                        this.list.unshift(obj)
+                        this.id = this.name = ""
+                    }
+
+                },
+                filter() {
+                    //filter方法调用之后没有触发视图更新，原因是filter方法会返回一个新的数组，该方法没有修改原来的list数组
+                    var newList = this.list.filter((item) => {
+                        return item.id > 3
+                    })
+                    console.log(newList)
+                    //一旦下面的代码写完之后，就能够触发视图更新，原因是把原来的list数组修改了
+                    this.list = newList;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

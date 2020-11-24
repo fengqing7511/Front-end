@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--1.引入vue.js-->
+    <script src="./vue-2.4.0.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <!--表示条件的  v-if   v-else-if   v-else-->
+        <p v-if="type=='A'">当前是A</p>
+        <p v-else-if="type=='B'">当前是B</p>
+        <p v-else>当前是其他</p>
+
+        <!--v-if 和 v-show区别：当条件是假的时候，v-if根本就不会渲染页面，而v-show会渲染页面，只不过元素的display:none
+            v-if 有更高的初始渲染消耗，当不需要频繁切换显示隐藏的时候用v-if
+            v-show 有更高的切换消耗，当需要频繁的切换隐藏和显示的时候用v-show
+        -->
+        <div v-if="flag">v-if来控制显示和隐藏</div>
+        <div v-show="flag">v-show来控制显示和隐藏</div>
+        <button @click="flag=!flag">点我切换flag</button>
+
+        <!--一般情况下我们不推荐在同一个元素上同时使用v-if和v-for，当同时的使用的时候，v-for的优先级会比v-if要高-->
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                type: 'A',
+                flag: false
+            }
+        })
+    </script>
+</body>
+
+</html>

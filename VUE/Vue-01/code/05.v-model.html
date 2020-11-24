@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <input type="text" :value="msg" /> -->
+
+        <input type="text" v-model="msg"/>
+        <button @click="show">显示数据</button>
+        <button @click="modify">修改数据</button>
+    </div>
+
+    <!--
+        v-bind ：  页面变了，数据没变
+                   数据变了，页面会变
+        
+
+        v-model:   页面变了，数据变了
+                   数据变了，页面变了
+        v-model 就是双向绑定指令，能够保证页面和数据的同步
+
+
+        思考：
+        1.为什么页面变了，数据会变?   原理是通过事件监听来完成
+        2.为什么数据变了，页面会变?   vue2.x 是通过Object.defineProperty(数据劫持)+发布订阅模式实现的  。vue3x是通过代理模式实现
+    -->
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "数据"
+            },
+            methods: {
+                show() {
+                    console.log(this.msg)
+                },
+                modify(){
+                    this.msg = "哈哈"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

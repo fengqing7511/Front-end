@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*属性选择器*/
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p v-cloak>{{msg}}</p>
+
+        <!--在vue中通过v-开头的都是指令
+            指令的值应该是一个变量 或者 常量
+        -->
+        <p v-text="msg">这是p标签</p>
+        <p v-text="'abc'">这是p标签</p>
+
+        <p v-text="htmldata"></p>
+        <p v-html="htmldata">ddddd</p>
+
+        <input type="text" v-bind:title="title">
+
+        <!--使用v-bind来绑定属性   默认情况下v-bind可以省略-->
+        <img v-bind:src="imgpath">
+        <img :src="imgpath">
+
+        
+        <!--使用v-on绑定事件  v-on可以用@符号来简写-->
+        <button v-on:click="btnHandler">点我触发事件</button>
+        <button @click="btnHandler">点我触发事件</button>
+        <!--这边的alert如果methods中没有声明，那么就会报错-->
+        <button @click="alert(1)">点我触发alert事件</button>
+
+
+    </div>
+    <!--
+        - v-cloak  插值表达式的闪烁问题
+        - v-text   覆盖标签的文本内容
+        - v-html   覆盖标签的网页内容
+        - v-bind   绑定属性的指令,该指令可以省略，直接用:即可
+        - v-on     用于事件绑定，该指令可以省略，用@替换
+    -->
+    <script src="./vue-2.4.0.js"></script>
+    <script>
+        
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "指令介绍",
+                htmldata:"<h1 style='color:red'>这是h1标签</h1>",
+                title:"提示信息",
+                imgpath : "./images/timg.jpg"
+            },
+            //methods写的就是方法
+            methods:{
+                btnHandler(){
+                    console.log("btnHandler执行了")
+                },
+                alert(data){
+                    alert(data)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

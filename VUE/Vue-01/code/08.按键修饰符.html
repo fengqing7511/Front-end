@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--1.引入vue.js-->
+    <script src="./vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <!-- 
+        按键修饰符:
+        .enter     按下回车键触发
+        .delete    按下backspace触发
+        .esc       按下esc触发
+        .space     按下空格键触发
+        .up     
+        .down
+        .left
+        .right     键盘上下左右键
+        .ctrl      ctrl键
+        .alt       alt键
+        .shift     shift键
+    --> 
+    <div id="app">
+        <input type="text" @keyup.enter="submit">
+        <input type="text" @keyup.delete="submit">
+        <input type="text" @keyup.esc="submit">
+        <input type="text" @keyup.right="submit">
+        <input type="text" @keyup.abc="submit">
+        <!--按住alt+c触发clear方法-->
+        <input v-on:keyup.alt.67="clear">
+        <!--按住ctrl+鼠标点击 触发doSomething方法-->
+        <div v-on:click.ctrl="doSomething">Do something</div>
+    </div>
+
+    <script>
+        //自定义按键修饰符  120->F9   查看对应的码表  https://blog.csdn.net/weixin_34216036/article/details/93813615
+        //当Vue给我们提供的按键修饰符不够用的时候，我们可以通过Vue.config.keyCodes.xx 来自定义按键修饰符
+        Vue.config.keyCodes.abc = 120
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "消息"
+            },
+            methods:{
+                submit(){
+                    console.log("提交表单")
+                },
+                clear(){
+                    console.log("clear")
+                },
+                doSomething(){
+                    console.log("doSomething")
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

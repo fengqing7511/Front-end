@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--1.引入vue.js-->
+    <script src="./vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+        <button @click="start">lang</button>
+        <button @click="stop">stop</button>
+
+    </div>
+
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: '猥琐发育，别浪~~!',
+                timer: null
+            },
+            methods: {
+                start() {
+                    if (!this.timer) {
+                        this.timer = setInterval(() => {
+                            var start = this.msg.substring(0, 1);
+                            var end = this.msg.substring(1);
+                            this.msg = end + start;
+                        }, 200);
+                    }
+                },
+                stop() {
+                    clearInterval(this.timer)
+                    this.timer = null;
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

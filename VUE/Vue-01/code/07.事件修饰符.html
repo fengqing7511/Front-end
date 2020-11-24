@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--1.引入vue.js-->
+    <script src="./vue-2.4.0.js"></script>
+
+    <style>
+        .inner {
+            height: 150px;
+            background-color: darkcyan;
+        }
+
+        .outer {
+            padding: 40px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!--1.阻止事件冒泡-->
+        <div class="outer" @click="outerHanlder">
+            <div class="inner" @click.stop="innerHandler"></div>
+        </div>
+
+        <!--2.阻止默认事件-->
+        <a href="http://www.baidu.com" @click.prevent="aHandler">点我</a>
+
+        <!--3.事件捕获阶段   
+            冒泡   事件会从孩子向父亲冒   inner -> outer -> app ->body -> html ->window
+            捕获   由最顶层向里面去捕获   window -> html -> body -> app ->outer > inner
+            目标   找到事件的真正处理者
+        -->
+        <div class="outer" @click.capture="outerHanlder">
+            <div class="inner" @click="innerHandler"></div>
+        </div>
+
+        <!--self : 只有发生在自己身上的事件才会执行，子元素冒泡到当前元素上的事件不执行
+            self和stop的区别：self是只有触发在自己身上的事件才会执行，但是该事件仍然会有事件冒泡
+                            stop是阻止事件冒泡，当前元素的事件执行之后，就不会再向上去冒了
+        -->
+        <div class="outer" @click="outerHanlder">
+            <div class="inner" @click.self="innerHandler">
+                <input type="button" value="self" @click="btnHandler">
+            </div>
+        </div>
+
+
+        <!--once-->
+        <div class="inner" @click.once="onceHandler"></div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "消息",
+            },
+            methods: {
+                innerHandler() {
+                    console.log("innerHanlder")
+                },
+                outerHanlder() {
+                    console.log("outerHanlder")
+                },
+                aHandler() {
+                    console.log("a的点击事件执行了")
+                },
+                btnHandler() {
+                    console.log("按钮的点击事件")
+                },
+                onceHandler(){
+                    console.log("只可以点击一次")
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
