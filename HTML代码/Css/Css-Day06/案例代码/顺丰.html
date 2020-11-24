@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>顺丰</title>
+		<style type="text/css">
+			/*去除内外边距*/
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.sf{
+				width: 1250px;
+				height: 472px;
+				margin: 100px auto;
+				/*涉及到子级元素的定位，所以父级先定位*/
+				position: relative;
+			}
+			.nav{
+				width: 960px;
+				height: 80px;
+				background-color: #000;/*纯黑色*/
+				/*子级元素定位，依赖于已经定位好的父级元素 -- 绝对定位*/
+				position: absolute;
+				/*设置偏移量*/
+				left: 50%;/*居中*/
+				margin-left: -480px;
+				bottom: 0;/*底边对齐*/
+			}
+			/*派生选择器*/
+			.nav li{
+				float: left;
+				width: 160px;/*960px/6 = 160px*/
+				height: 80px;
+				list-style: none;
+			}
+			.nav li a{
+				width: 160px;
+				height: 80px;
+				display: block;/*转换成块级元素*/
+				line-height: 80px;
+				text-decoration: none;
+				color: #fff;
+				text-align: center;
+			}
+			/*设置背景色高亮*/
+			.nav li a:hover{
+				background-color: #fff;
+				color: #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="sf">
+			<a href="#">
+				<img src="../img/sf.png" width="1250" height="472"/>
+			</a>
+			<div class="nav">
+				<ul>
+					<li><a href="#">快递查询</a></li>
+					<li><a href="#">快递查询</a></li>
+					<li><a href="#">快递查询</a></li>
+					<li><a href="#">快递查询</a></li>
+					<li><a href="#">快递查询</a></li>
+					<li><a href="#">快递查询</a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

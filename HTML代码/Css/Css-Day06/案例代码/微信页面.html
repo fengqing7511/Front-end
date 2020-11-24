@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>微信页面</title>
+		<style type="text/css">
+			/*全局选择器*/
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			body{
+				/*背景的平铺 - 横向 - x轴*/
+				background: url(../../img/wx.jpg) repeat-x;
+			}
+			.nav{
+				height: 75px;
+			}
+			.nav li{
+				float: left;/*左浮动-脱离文档流*/
+				margin: 0 10px;/*两个参数：上下  左右*/
+				padding-top: 21px;
+			}
+			.nav li a{
+				display: block; /*转换为块级元素*/
+				background: url(../../img/to.png) no-repeat;
+				color: #fff;
+				line-height: 33px;
+				font-size: 14px;
+				padding-left: 15px;
+				text-decoration: none;
+			}
+			.nav li a:hover{
+				background-image: url(../../img/ao.png);
+			}
+			/*以上的操作只是完成了一半，接下来对span处理 */
+			.nav li a:hover span{/*鼠标经过a a里面span也要变换背景*/
+				/*先设置背景，再设置背景图片*/
+				background-image: url(../../img/ao.png);
+			}
+			/*对span的样式进行处理*/
+			.nav li a span{
+				/*span是一个行内元素，需要转换成块级元素*/
+				display: block;
+				line-height: 33px;
+				background: url(../../img/to.png) no-repeat right center;
+				padding-right: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav">
+			<ul>
+				<li>
+					<a href="#">
+						<span>首页</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span>帮助与支持</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span>反馈</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span>公众平台</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span>设置</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+

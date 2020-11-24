@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				margin 0;
+				padding 0;
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+			}
+			.box{
+				width: 343px;
+				height: 100px;
+				background-color: url(../img/paopao.png) left top no-repeat,
+				                                  url(../img/paopao.png) right bottom no-repeat;
+				background-color: blue;
+				margin:50px auto;
+				transition:all 1s linear;
+				cursor:pointer;
+				}
+				.box:hover{
+					background-position: left bottom, right top;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
