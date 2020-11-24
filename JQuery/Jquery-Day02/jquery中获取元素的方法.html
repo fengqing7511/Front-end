@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		        <script type="text/javascript"      src="js/manyMethods.js" ></script>
+				<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+		<style type="text/css">
+			dl{
+				width: 200px;
+				position: absolute;
+				left:45%;
+				/*margin-left: 500px;
+				margin-top: 80px;*/
+			}
+			dl dd{
+				margin-top: 10px;
+				cursor: pointer;
+				text-align: center;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dv">
+			<dl>
+				<dd>王者</dd>
+				<dd>吃鸡</dd>
+				<dd>阴阳师</dd>
+				<dd>碧蓝航线</dd>
+				<dd>贪吃蛇</dd>
+			</dl>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$("dd").mouseenter(function(){
+			$(this).css("backgroundColor","red")
+			$(this).siblings().css("backgroundColor","")
+		}).mouseleave(function(){
+			$(this).parent().children().css("backgroundColor","")
+		}).click(function(){
+			$(this).css("backgroundColor","red").prevAll().css("backgroundColor","green").end().nextAll().css("backgroundColor","yellow")
+		})
+	</script>
+</html>

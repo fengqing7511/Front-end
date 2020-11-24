@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript"      src="js/manyMethods.js" ></script>
+		<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+	</head>
+	<body>
+			<input type="button" name="b1" id="b1" value="全选" />
+			<!--<input type="button" name="b2" id="b2" value="全不选" />-->
+			<br />
+			<br />
+			<div id="dv">游戏
+			<br />
+			<br />
+			<input type="checkbox" name="" id="" value="" />王者荣耀
+			<input type="checkbox" name="" id="" value="" />和平精英
+			<input type="checkbox" name="" id="" value="" />碧蓝航线
+			<input type="checkbox" name="" id="" value="" />阴阳师
+		</div>
+	</body>
+	<script type="text/javascript">
+		/*$(function(){
+			$("#b1").click(function(){
+			$(":checkbox").prop("checked",true);
+		})
+			$("#b2").click(function(){
+			$(":checkbox").prop("checked",false);
+		})
+		})*/
+		
+			$("#b1").click(function(){
+				if($(this).val()=="全选"){
+					$(":checkbox").prop("checked",true);
+					$(this).val("全不选");
+				}else if($(this).val()=="全不选"){
+					$(":checkbox").prop("checked",false);
+					$(this).val("全选");
+				}
+			})
+	</script>
+</html>

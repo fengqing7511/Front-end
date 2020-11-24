@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript"  src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript"  src="js/jquery.lazyload.js" ></script>
+	</head>
+	<body>
+		<img data-original="img/1.jpg"   class="lazy"  style="margin: 1000px auto;width: 500px;"/>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$("img.lazy").lazyload()
+		})
+	</script>
+</html>

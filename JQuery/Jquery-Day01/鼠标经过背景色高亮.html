@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+	</body>
+	    <script type="text/javascript"      src="js/manyMethods.js" ></script>
+		<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+		
+		<script type="text/javascript">
+			var target="";
+				$("ul").mouseover(function(e){
+					target=e.target;
+					$(target).css("backgroundColor","red");
+					$(target).siblings().css("backgroundColor", "");
+				})
+				$("ul").mouseout(function(){
+					$(target).css("backgroundColor","");
+				})
+		</script>
+</html>

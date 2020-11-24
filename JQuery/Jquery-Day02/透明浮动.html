@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		        <script type="text/javascript"      src="js/manyMethods.js" ></script>
+				<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+				<style type="text/css">
+					div{
+						margin-left: 350px;
+						margin-top: 100px;
+						padding: 10px;
+						border:5px solid white;
+						width:625px;
+					}
+					body{
+						background-color: black;
+					}
+					div img{
+						/*float:left;
+						margin: 0  10px  10px  0;*/
+						display: inline-block;
+						border:2px solid  blue;
+					}
+				</style>
+	</head>
+	<body>
+		<div id="dv">
+			<img src="img/01.jpg"/>
+			<img src="img/02.jpg"/>
+			<img src="img/03.jpg"/>
+			<br />
+			<img src="img/04.jpg"/>
+			<img src="img/05.jpg"/>
+			<img src="img/06.jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$("img").mousemove(function(){         //mouseenter
+			$(this).css("opacity","1")
+			$(this).siblings().css("opacity","0.3")
+		})
+		/*$("div").mouseleave(function(){
+			$(this).find("img").css("opacity","1")
+			})*/
+			$("img").mouseout(function(){
+			$(this).siblings().css("opacity","1")
+			})
+	</script>
+</html>

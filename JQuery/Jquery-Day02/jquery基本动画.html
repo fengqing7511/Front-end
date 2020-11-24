@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		        <script type="text/javascript"      src="js/manyMethods.js" ></script>
+				<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button"  id="btn1" value="显示" />
+		<input type="button"  id="btn2" value="隐藏" />
+		<input type="button"  id="btn3" value="淡入" />
+		<input type="button"  id="btn4" value="淡出" />
+		<input type="button"  id="btn5" value="淡入淡出" />
+		<input type="button"  id="btn6" value="下滑" />
+		<input type="button"  id="btn7" value="上滑" />
+		<br />
+		<br />
+		<div id="dv"></div>
+	</body>
+	<script type="text/javascript">
+		$("#btn1").click(function(){
+			$("#dv").css("display","block")
+		})
+		$("#btn2").click(function(){
+			$("#dv").css("display","none")
+		})
+		$("#btn3").click(function(){
+			$("#dv").fadeIn(1000,function(){})
+		})
+		$("#btn4").click(function(){
+			$("#dv").fadeOut(1000,function(){})
+		})
+		$("#btn5").click(function(){
+			$("#dv").fadeToggle(1000,function(){})
+		})
+		$("#btn6").click(function(){
+			$("#dv").slideDown(1000,function(){})
+		})
+		$("#btn7").click(function(){
+			$("#dv").slideUp(1000,function(){})
+		})
+	</script>
+</html>

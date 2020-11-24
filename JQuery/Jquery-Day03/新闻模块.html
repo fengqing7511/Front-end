@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#bbox{
+				margin: 60px  auto;
+				margin-left: 500px;
+				position: absolute;
+			}
+			#hbox{
+				cursor: move;
+				background-color: cadetblue;
+				width:200px;
+				text-align: center;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-webkit-user-select:none ;
+				user-select:none;
+			}
+			#tbox{
+				background-color: white;
+				width:200px;
+			}
+			#tbox  ul  li{
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bbox">
+			<div id="hbox">新闻拖动模块</div>
+			<div id="tbox">
+					<ul>
+						<li>新闻一</li>
+						<li>新闻二</li>
+						<li>新闻三</li>
+					</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/manyMethods.js" ></script>
+	<script type="text/javascript">
+		getId("hbox").onmousedown=function(e){
+			var mouseX=getPage(e).pageX - getId("bbox").offsetLeft;
+			var mouseY=getPage(e).pageY - getId("bbox").offsetTop;
+			document.onmousemove=function(e){
+			    getId("bbox").style.left=(getPage(e).pageX - mouseX)+"px";
+			    getId("bbox").style.top=(getPage(e).pageY - mouseY)+"px";
+        };
+       };
+       getId("hbox").onmouseup=function(){
+       	getId("bbox").onmousemove=null;
+       };
+	</script>
+</html>

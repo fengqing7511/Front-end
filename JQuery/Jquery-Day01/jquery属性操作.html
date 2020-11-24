@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" name="b1" id="b1" value="" />
+		<a href="#">百度</a>
+	</body>
+	    <script type="text/javascript"      src="js/manyMethods.js" ></script>
+		<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$("a").attr({
+					href:"http://www.4399.com"
+				})
+				/*$("input").attr({
+					checked:"checked"
+				})*/
+				
+				$("input").prop("disabled",true)
+				$("input").prop("disabled",false)
+				
+				$("input").attr("disabled",true)
+				$("input").removeAttr("disabled")
+				
+				console.log($("#b1").attr("checked"))            //undefined(checked未定义)  只能获得已定义的值
+				console.log($("#b1").prop("checked"))
+			})
+		</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		        <script type="text/javascript"      src="js/manyMethods.js" ></script>
+				<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+	</head>
+	<body>
+		<input type="button"  id="btn1" value="逐个显示" />
+		<input type="button"  id="btn2" value="逐个隐藏" />
+		<div id="dv">
+			<img src="img/111.jpg"/>
+			<img src="img/12.jpg"/>
+			<img src="img/13.jpg"/>
+			<img src="img/14.jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$("#btn1").click(function(){
+			$("img").last().hide(1000,function(){
+				$(this).prev().hide(1000,arguments.callee)
+			})
+		})
+		$("#btn2").click(function(){
+			$("img").first().show(1000,function(){
+				$(this).next().show(1000,arguments.callee)
+			})
+		})
+	</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width:300px;
+				height: 300px;
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript"      src="js/manyMethods.js" ></script>
+		<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+		<div id="dv"></div>
+	</body>
+	<script type="text/javascript">
+		var dv=$("#dv")[0];
+		//var dv2=$("#dv").get(0);
+		dv.innerHTML="jquery转换为dom";
+
+		var $dv2=$(dv);
+		$dv2.html("dom转换为jquery");
+	</script>
+</html>

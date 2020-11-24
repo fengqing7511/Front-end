@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#d3{
+				width: 1000px;
+				margin: 0   auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div  id="d1"><img src="../img/top.png" /></div>
+		<div  id="d2"><img src="../img/nav.png" /></div>
+		<div  id="d3"><img src="../img/main.png"/></div>
+				<script type="text/javascript"      src="js/manyMethods.js" ></script>
+				<script type="text/javascript"      src="jquery.min.js" ></script>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(document).scroll(function(){
+				var stop=$(window).scrollTop();
+				if(stop>$("#d1").height()){
+					$("#d2").css({
+						"position":"fixed",
+						"top":0
+					})
+				}else{
+					$("#d2").css("poistion","static");
+				}
+			})
+		})
+	</script>
+</html>

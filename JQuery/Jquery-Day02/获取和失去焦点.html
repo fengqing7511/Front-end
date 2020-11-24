@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		        <script type="text/javascript"      src="js/manyMethods.js" ></script>
+				<script type="text/javascript"      src="js/jquery-1.8.2.js" ></script>
+	</head>
+	<body>
+		<input type="text" name="" id="" placeholder="输入文本" />
+	</body>
+	<script type="text/javascript">
+		$("input").focus(function(){;
+			if($(this).val().length>=5){$(this).css("backgroundColor","red")}
+		}).blur(function(){
+			$(this).css("backgroundColor","")
+		})
+	</script>
+</html>
