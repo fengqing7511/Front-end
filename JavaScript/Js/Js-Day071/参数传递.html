@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//值传递
+			function f1(num1,num2){
+				num1=100;
+				num2=200;
+				console.log(num1);
+				console.log(num2);
+			}
+			var num1=10,num2=20;
+			f1(num1,num2);
+		</script>
+		<script type="text/javascript">
+			//对象传递
+			function Person(name,age,sex){
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+			}
+			
+			function ff(Person){
+				Person.name="李白";
+				console.log(Person.name);
+			}
+			var person=new Person("王维",25,男);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变量</title>
+	</head>
+	<body>
+		<script>
+			/*JS中的变量互换-不引入第三方变量的方法 */
+			var num1=53;num2=94;
+			num1=num1+num2;
+			num2=num1-num2;
+			num1=num1-num2;
+			console.log(num1,num2);
+			/*查找Numer类型的取值范围*/
+			console.log(Number.MAX_VALUE,Number.MIN_VALUE);
+			/*不要使用小数来验证小数的计算结果（存在精度问题）*/
+			var num3=0.1;num4=0.2;num5=num3+num4;
+			console.log(num3+num4==0.3);                                 //false
+			console.log(num5==0.3);                                             //false
+			var num6=0.8;num7=0.3;num8=num7+num6;
+			console.log(num6+num7==1.1);                                //true
+			console.log(num8==1.1);                                            //true
+			/*isNaN(值or变量名)方法来判断是否为数字类型*/
+			console.log(isNaN(num4));                                        //false
+			console.log(isNaN("king"));                                       //true
+		</script>
+		<script>
+			/*
+			 * undefined出现的3种情况
+			 1.函数无返回值，却已接收
+			 */
+			var x;
+			console.log(typeof x);                                               //undefined(2.声明变量却无赋值)
+			var y=x+10;
+			console.log(y);                                                          //NaN(3.undefined+数字类型=undefined)
+		</script>
+	</body>
+</html>

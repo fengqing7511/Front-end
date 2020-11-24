@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dv">
+			<p>01</p>
+			<p>02</p>
+			<p>03</p>
+		</div>
+		<ul>
+			<li>04</li>
+			<li>05</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		document.getElementsByTagName("p")[0].onclick=function(e){
+			console.log(e.target);
+			console.log(this.innerHTML);
+		}
+		document.getElementsByTagName("ul").onclick=function(e){
+			console.log(e.target);
+			console.log(this.innerHTML);
+		}
+	</script>
+</html>

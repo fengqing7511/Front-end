@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="01" id="01" value="跳转01" />
+		<input type="button" name="02" id="02" value="跳转02" />
+		<script type="text/javascript">
+			document.getElementById("01").onclick=function(){
+				location.assign("test01.html");
+			}
+			document.getElementById("02").onclick=function(){
+				history.forward();
+				//history.go(1);
+			}
+		</script>
+	</body>
+</html>

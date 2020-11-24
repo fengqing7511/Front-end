@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea name="" rows="10" cols="30">协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。协议内容。</textarea>
+		<br />
+	     <input type="button" name="b1" id="b1" value="阅读协议内容(5)"   disabled="true"/>
+	</body>
+	<script type="text/javascript"  src="manyFunction.js" ></script>
+	<script type="text/javascript">
+		var time=5;
+		var timeId=setInterval(function(){
+			time--;
+			getId("b1").value="阅读协议内容("+time+")";
+			if(time<0){
+				clearInterval(timeId);
+				getId("b1").disabled=false;
+				getId("b1").value="同意";
+			}
+		},1000);
+	</script>
+</html>

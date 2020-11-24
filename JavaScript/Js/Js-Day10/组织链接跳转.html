@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1.内嵌式直接跳转-->
+		<a href="http://www.baidu.com"   onclick=" return false">百度1</a>
+		
+		<a href="http://www.baidu.com"   onclick=" return f2()">百度2</a>
+		<script type="text/javascript">
+			function f2(){
+				return false;
+			}
+		</script>
+	</body>
+</html>

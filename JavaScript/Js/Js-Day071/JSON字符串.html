@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var person={
+				"name":"杜伟",
+				"age":"19",
+				"sex":"男",
+			};
+			//取单个值
+			var key01="name";
+			console.log(person[key01]);
+			//遍历JSON
+			for(key in person){
+				console.log(key+":"+person[key]);
+			}
+		</script>
+	</body>
+</html>

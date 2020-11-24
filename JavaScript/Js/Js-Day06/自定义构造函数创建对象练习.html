@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Image(width,height,memory){
+				this.width=width;
+				this.height=height;
+				this.memory=memory;
+				
+				this.content=function(){
+					console.log("用于展示的内容");
+				}
+			}
+			
+			function Dog(color,weight,age){
+				this.color=color;
+				this.weight=weight;
+				this.age=age;
+				
+				this.action=function(){
+					console.log("小狗会拆家");
+				}
+			}
+			
+			var image01=new Image(10,20,"10M");
+			var dog01=new Dog("black","20斤",5);
+			console.log(image01.memory);
+			console.log(dog01.color);
+			console.log(dog01);
+			image01.content();
+			dog01.action();
+			
+			console.log(image01 instanceof Image);
+			console.log(image01 instanceof Dog);
+		</script>
+	</body>
+</html>

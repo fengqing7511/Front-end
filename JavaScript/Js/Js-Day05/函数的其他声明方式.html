@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function() {
+				console.log("匿名函数，无法调用");
+			}
+			
+			var m=function(){
+				console.log("匿名函数，可以调用");
+			};
+			m();
+			
+			(function(){
+				console.log("自调用函数，自己调用自己");
+			})();
+		</script>
+	</body>
+</html>

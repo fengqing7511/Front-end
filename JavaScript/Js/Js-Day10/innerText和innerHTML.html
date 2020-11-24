@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="b1" value="输入文本" />
+		<input type="button" id="b2" value="获取文本" />
+		<br />
+		<br />
+		<div id="d1">
+			文本1
+			<p>文本2</p>
+		</div>
+		
+		<script type="text/javascript">
+			document.getElementById("b1").onclick=function(){
+				document.getElementById("d1").innerText="文本3";
+				document.getElementById("d1").innerText="<p>文本4</p>";
+				document.getElementById("d1").innerHTML="文本5";
+				document.getElementById("d1").innerHTML="<p>文本6</p>";
+			}
+			document.getElementById("b2").onclick=function(){
+				console.log(document.getElementById("d1").innerText);
+				console.log(document.getElementById("d1").innerHTML);
+			}
+		</script>
+	</body>
+</html>

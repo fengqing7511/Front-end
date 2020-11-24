@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div01">
+		<input type="button" name="button01" id="button01" value="选择性别" />
+		<input type="radio" name="" id="1" value="01" />男
+		<input type="radio" name="" id="" value="02" />女
+		<input type="radio" name="" id="" value="03" />保密
+		</div>
+		<script type="text/javascript">
+			    document.getElementById("button01").onclick=function(){
+				/*var m=document.getElementById("div01");
+				var n=m.getElementsByTagName("input");
+				for(var i=0;i<n.length;i++){
+					if(n[i].value=="01"){
+					n[i].checked=true;
+				}
+				}*/
+				var m=document.getElementById("1");
+				m.checked="checked";
+			}
+		</script>
+	</body>
+</html>

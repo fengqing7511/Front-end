@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			当前案例：所有的内容都是需要记忆的！
+			
+			DOM中的元素，文本，图片等等都是属于节点的范畴。
+			我们学习节点的目的是更加方便的操作DOM树。
+			
+			节点中有一些属性（节点中特有的）需要记忆：（标签，文本等等）
+			nodeType: 节点的类型：
+			       1 - 标签         
+			       2 - 属性         
+			       3 - 文本
+			       
+			nodeName: 节点的名字： 
+			     标签节点 - 大写的标签名字
+			     属性节点 - 小写的属性名字
+			     文本节点 - #text
+			     
+			nodeValue: 节点的值：
+			    标签节点 - null
+			    属性节点 - 属性值  
+			    文本节点 - 文本内容   
+			
+			记住：
+			1、对于文档而言，nodeValue返回null
+			2、对于text，comment来说，nodeValue返回该节点的文本内容
+			3、对于属性节点来说，返回该属性的属性值
+			如果nodeValue值为null，则对它赋值不会有任何的效果！
+		-->
+	</head>
+	<body>
+		<div>
+			<ul id="uu">
+				<li>one</li>
+				<li>two</li>
+				<li >three</li>
+				<li  id="4">four</li>
+				<li>five</li>
+				<li>six</li>
+				<li>seven</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript"  src="manyFunctions.js"></script>
+	<script type="text/javascript">
+		console.log(getId("uu").parentNode);
+		console.log(getId("uu").parentElement);
+		console.log(getId("uu").childNodes);
+		console.log(getId("uu").children);
+		console.log("---------------------------------------------------------");
+		console.log(getId("uu").nodeType);
+		console.log(getId("uu").nodeName);
+		console.log(getId("uu").nodeValue);
+		console.log("---------------------------------------------------------");
+		console.log(getId("uu").firstChild);
+		console.log(getId("uu").firstElementChild);
+		console.log(getId("uu").lastChild);
+		console.log(getId("uu").lastElementChild);
+		console.log("---------------------------------------------------------");
+		console.log(getId("4").previousSibling);
+		console.log(getId("4").previousElementSibling);
+		console.log(getId("4").nextSibling);
+		console.log(getId("4").nextElementSibling);
+	</script>
+</html>

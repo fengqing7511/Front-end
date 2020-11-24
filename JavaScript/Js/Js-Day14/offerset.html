@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding: 0;
+			}
+			#d1{
+				width: 300px;
+				height: 200px;
+				background-color: red;
+				border:3px  solid  black;
+				margin-left: 50px;
+				/*position: absolute;
+				left:100px;*/                                                  /*相对于整个页面做偏移*/
+			}
+			#d2{
+				width: 150px;
+				height: 100px;
+				background-color: blue;
+				border:3px  solid  white;
+				margin-left: 100px;
+			/*	position:absolute;
+				left:100px; */                                                /*注：相对于父级元素做偏移--距离页面左侧200px,距离页面上方170px*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1"><div id="d2"></div></div>
+	</body>
+	<script type="text/javascript"  src="manyMethods.js" ></script>
+	<script type="text/javascript">
+		console.log(getId("d2").offsetLeft);                                //200;  子集div2的margin-left+left；父集和子集都浮动，与父集没有关系，只与子集有关，距离div1边框200px
+        console.log(getId("d2").style.left);
+	</script>
+</html>

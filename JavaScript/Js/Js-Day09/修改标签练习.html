@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 400px;
+				height: 250px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/1.jpg"/>
+		<img src="img/2.jpg"/>
+		<img src="img/3.jpg"/>
+		<script type="text/javascript">
+			var arr=document.getElementsByTagName("img");
+			for(var i=0;i<arr.length;i++){
+				arr[i].onclick=function(){
+					alert(this.src);
+				}
+			}
+		</script>
+	</body>
+</html>

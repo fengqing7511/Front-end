@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//构造函数
+			function Person(name, age, salary){
+				this.name = name;
+				this.age = age;
+				this.salary = salary;
+			}
+			//封装一个函数，用于将构造函数作为参数传入
+			function f1(person){//person是一个形参
+				person.name = "李白";
+				//实例化了一个对象，调用的是构造函数Person
+				person = new Person("杜甫", 26, 6000);
+				console.log(person);//Person {name: "杜甫", age: 26, salary: 6000}
+			}
+			//调用f1
+			//创建一个对象
+			var p = new Person("西门吹雪", 24, 20000);
+			f1(p);
+			console.log(p.name);
+	</body>
+</html>

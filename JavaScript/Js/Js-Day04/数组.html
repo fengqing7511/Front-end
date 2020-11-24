@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.用函数构造建立数组
+			//输出一个空数组
+			var arr1=new Array();
+			console.log(arr1);
+			//输出一个undefined的数组
+			var arr2=new Array(5);//单个数字代表数组长度
+			console.log(arr2);
+			console.log(arr2.length);//.length方法获取数组长度
+			//2.用自变量构建数组
+			var arr3=[];
+			console.log(arr3);
+			//用下标索引数组元素
+			var arr4=[10,55,96,68];
+			console.log(arr4);
+			console.log(arr4[0]);
+			arr4[3]=26;
+			console.log(arr4);
+			//输出不存在的下标时，输出undefined
+			console.log(arr4[9]);
+		</script>
+	</body>
+</html>

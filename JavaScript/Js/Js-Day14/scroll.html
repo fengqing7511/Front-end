@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			/*body{
+				width: 3000px;
+				height: 4000px;
+			}*/
+			div{
+				width:150px;
+				height: 100px;
+				border:2px   solid   black;
+				overflow: auto;
+			/*	margin-top: 50px;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+			今天天气好热啊!
+		</div>
+		<input type="button" name="b1" id="b1" value="测试scrollTop" />
+	</body>
+	<script type="text/javascript"   src="manyMethods.js" ></script>
+	<script type="text/javascript">
+		console.log(getId("d1").offsetWidth);                                           //154         width+border*2
+		console.log(getId("d1").offsetHeight);                                          //104         height+border*2
+		
+		console.log(getId("d1").scrollWidth);                                           //133       元素中内容的实际宽度
+		console.log(getId("d1").scrollHeight);                                         //420        元素中全部内容的实际高度
+		
+		//console.log(getId("d1").scrollLeft);
+		getId("b1").onclick=function(){
+		console.log(getId("d1").scrollTop);
+		}
+		
+		getId("d1").onscroll=function(){
+			console.log(getId("d1").scrollTop);
+		}
+	</script>
+</html>

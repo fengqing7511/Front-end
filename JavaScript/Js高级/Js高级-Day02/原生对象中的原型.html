@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			String.prototype.strreverse=function(){
+				var newstr="";
+				for(var i=this.length-1;i>=0;i--){
+					newstr += this.charAt(i);
+				}
+				return newstr;
+			};
+			
+			var str=new String("king");
+			console.log(str.strreverse());
+		</script>
+	</body>
+	<script type="text/javascript">
+		Array.prototype.arrSort=function(){
+			for(var i=0;i<this.length-1;i++){
+				for(var j=0;j<this.length-1-i;j++){
+					if(this[j]>this[j+1]){
+						var temp=this[j];
+						this[j]=this[j+1];
+						this[j+1]=temp;
+					}
+				}
+			}
+		}
+		var arr=new Array(10,20,35,0,3,5,4);
+		arr.arrSort();
+		console.log(arr);
+	</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			(function(win){
+				function  Random(){
+					this.private01=private;
+				}
+				
+				Random.prototype.getRandom=function(){
+					return parseInt(Math.random()*20+1);
+				}
+				
+				function  private(){
+					console.log("我是私有函数");
+				}
+				
+				win.Random=Random;
+			})(window);
+			
+			var r=new Random();
+			r.private01();
+			
+			console.log(r.getRandom());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title  id="01"  value="无敌是多么寂寞">
+             无敌是多么寂寞
+		</title>
+		<!--<script type="text/javascript">
+		/*	var yx=function(){
+				var buttonObj=document.getElementById("01");
+				console.log("无敌是多么寂寞");
+			}*/
+				setInterval(function(){
+				var buttonObj=document.getElementById("01");
+				console.log(buttonObj.value);
+				},100);
+			</script>-->
+	</head>
+	<body>
+		<script type="text/javascript">
+			setInterval(function(){
+				var str=document.title;
+				var str1=str.charAt(0);
+				var str2=str.slice(1,100);
+				document.title=str2+str1;
+			},300);
+		</script>
+	</body>
+</html>

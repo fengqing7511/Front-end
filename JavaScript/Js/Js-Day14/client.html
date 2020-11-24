@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 300px;
+				border:20px  solid   blue;
+				border-left-width:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dv"></div>
+	</body>
+	<script type="text/javascript"  src="manyMethods.js" ></script>
+	<script type="text/javascript">
+		console.log(getId("dv").clientWidth);
+		console.log(getId("dv").clientHeight);
+		console.log(getId("dv").clientLeft);
+		console.log(getId("dv").clientTop);
+	</script>
+</html>

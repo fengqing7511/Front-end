@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 200px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="bu1" id="bu1" value="div变换" />
+		<br />
+		<br />
+		<div id="d1"></div>
+		
+		<script type="text/javascript">
+			document.getElementById("bu1").onclick=function(){
+				var n=document.getElementById("d1");
+				n.style.width="200px";
+				n.style.backgroundColor="blueviolet";
+				n.style.border="2px solid yellow";
+			}
+		</script>
+	</body>
+</html>

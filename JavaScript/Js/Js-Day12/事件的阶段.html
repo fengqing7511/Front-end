@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#d1{
+				width: 400px;
+				height: 300px;
+				background-color: yellow;
+			}
+			#d2{
+				width: 300px;
+				height: 200px;
+				background-color: green;
+			}
+			#d3{
+				width: 100px;
+				height: 50px;
+				background-color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1"><div id="d2"><div id="d3"></div></div></div>
+	</body>
+	<script type="text/javascript"  src="manyFunction.js" ></script>
+	<script type="text/javascript">
+		var divObjs=[getId("d1"),getId("d2"),getId("d3")];
+		
+		divObjs.forEach(function(ele){
+			ele.addEventListener("click",function(e){
+				console.log(this.id+"            "+e.eventPhase);
+			},false);
+		});
+		
+		/*for(var i=0;i< divObjs.length;i++){
+			 divObjs[i].onclick=function(e){
+			 	console.log(this.id+"            "+e.eventPhase);
+			 }
+		}*/
+	</script>
+</html> 

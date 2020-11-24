@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>封装div移动的动画</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				margin-top: 30px;
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				/*脱离文档流 - 设置定位*/
+				position: absolute;
+			}
+		/*	input{
+				margin-top: 20px;
+			}*/
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" name="btn0" id="btn0" value="回到0px" />
+		<input type="button" name="btn1" id="btn1" value="移动到400px" />
+		<input type="button" name="btn2" id="btn2" value="移动到800px" />
+		<div id="dv"></div>
+		
+		<script src="manyMethods.js"></script>
+		<script type="text/javascript">
+			getId("btn1").onclick = function(){
+				animate1(getId("dv"), 400);
+			};
+
+			getId("btn2").onclick = function(){
+				animate1(getId("dv"), 800);
+			};
+			
+			getId("btn0").onclick = function(){
+				animate1(getId("dv"), 0);
+			};
+		</script>
+	</body>
+</html>

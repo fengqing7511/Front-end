@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#dv1{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+			}
+			#dv2{
+				width: 200px;
+				height: 200px;
+				background-color: green;
+			}
+			#dv3{
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dv1"><div id="dv2"><div id="dv3"></div>/div></div>
+	</body>
+	<!--冒泡绑定方式二：
+		addEventListener：添加事件监听器，优点：可以在一个元素上绑定多个事件，比较灵活
+	-->
+	<script type="text/javascript">
+		var dvs=[document.getElementById("dv1"),document.getElementById("dv2"),document.getElementById("dv3")];
+		dvs.forEach(function(ele){
+			ele.addEventListener("click",function(){                          //添加不带有on的方法
+				console.log(this.id);
+			},false);
+		})
+		dvs.forEach(function(ele){
+			ele.addEventListener("click",function(){
+				console.log(this.id);
+			},false);
+		})
+	</script>
+</html>

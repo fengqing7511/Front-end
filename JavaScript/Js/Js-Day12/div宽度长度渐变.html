@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="b1" id="b1" value="变换大小" />
+		<br />
+		<br />
+		<div id="d1"></div>
+		
+		<script type="text/javascript"   src="manyFunction.js" ></script>
+		<script type="text/javascript">
+			getId("b1").onclick=function(){
+				var width=200,height=200;
+				var timeId=setInterval(function(){
+					width+=10;
+				    height+=10;
+				    if(width>=500||height>=500){
+				    	clearInterval(timeId);
+				    }
+				    getId("d1").style.width=width+"px";
+				    getId("d1").style.height=height+"px";
+				},20);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据类型转换</title>
+	</head>
+	<body>
+		<script>
+			//其他类型转换成数字类型
+			console.log(parseInt("ab99.7"));
+			console.log(parseInt("99.7sd"));
+			console.log(parseFloat("ab99.7"));
+			console.log(parseFloat("56.99kl"));
+			console.log(Number("99.7sd"));
+			console.log(Number("58.223"));
+		</script>
+		<script>
+			//其他类型转换成字符串类型
+			var m=10;
+			m1=m.toString();
+			console.log(typeof m1);
+			m2=String(m);
+			console.log(typeof m2);
+		</script>
+		<script>
+			console.log(Boolean(-10));
+			console.log(Boolean("king"));
+			console.log(Boolean(""));
+			console.log(Boolean(null));
+			console.log(Boolean(undefined));
+		</script>
+	</body>
+</html>

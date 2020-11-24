@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 60px;
+				height: 40px;
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<input type="button" name="bu1" id="bu1" value="隐藏" />
+		<input type="button" name="bu1" id="bu2" value="显示" />
+		<br />
+		<div id="d1"></div>
+		<script type="text/javascript">
+			document.getElementById("bu1").onclick=function(){
+				var m=document.getElementById("d1");
+				m.style.display="none";
+			}
+			document.getElementById("bu2").onclick=function(){
+				var m=document.getElementById("d1");
+				m.style.display="block";
+			}-->
+			<input type="button" name="b2" id="b2" value="隐藏" />
+			<br />
+			<br />
+			<div id="d2"></div>
+			<script type="text/javascript">
+				document.getElementById("b2").onclick=function(){
+					var k=document.getElementById("d2");
+					if(this.value=="隐藏"){
+						k.style.display="none";
+						this.value="显示";
+					}else if(this.value=="显示"){
+						k.style.display="block";
+						this.value="隐藏";
+					}
+				}
+			</script>
+		</script>
+	</body>
+</html>

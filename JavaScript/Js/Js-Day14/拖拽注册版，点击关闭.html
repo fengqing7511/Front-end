@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#bbox{
+				width: 300px;
+				height: 300px;
+				border:2px  solid  #ffffff;
+				box-shadow: 2px  2px  2px  2px  cornflowerblue;                              /*浮动阴影*/
+				position: absolute;
+				left:40%;
+				top:10%;
+				/*设置文字无法被选中*/
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			#sbox{
+				width: 100%;                                                           /*  设置与外层div宽度相同*/
+				line-height: 25px;
+				background-color: darkgray;
+				color:white;
+				cursor:move;
+				border-bottom:1px  solid  chartreuse;
+			}
+			span{
+				float:right;
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bbox">
+			<div id="sbox">注册信息(可拖拽)
+				<span id="bclose">
+					[关闭]
+				</span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript"  src="manyMethods.js" ></script>
+	<script type="text/javascript">
+		getId("sbox").onmousedown=function(e){
+			//鼠标在sbox中的位置=鼠标在页面中的位置  -   父盒子距离左边/上面的距离
+			var mouseX=e.clientX - getId("bbox").offsetLeft;
+			var mouseY=e.clientY - getId("bbox").offsetTop;
+			getId("bbox").onmousemove=function(e){
+				getId("bbox").style.left=(e.clientX - mouseX)+"px";
+				getId("bbox").style.top=(e.clientY - mouseY)+"px";
+			}
+		}
+		
+		getId("sbox").onmouseup=function(){
+			getId("bbox").onmousemove = null;
+		}
+		
+		getId("bclose").onclick=function(){
+			getId("bbox").style.display="none";
+		}
+	</script>
+</html>

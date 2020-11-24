@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>01</p>
+		<p>02</p>
+		<p>03</p>
+		<script type="text/javascript"  src="test.js" ></script>
+		<script type="text/javascript">
+			var num=10;
+			var pList=20;
+			
+			(function(){
+				var num=20;
+				console.log(num);
+			})();
+			
+			(function(){
+				function  getTagName(name){
+					return  document.getElementsByTagName(name);
+				}
+				var pList=getTagName("p");
+				for(var i=0;i<pList.length;i++){
+					pList[i].style.backgroundColor="deepskyblue";
+				}
+			})();
+			
+			function  test(){
+				console.log("代码中的test");
+			}
+			
+			console.log(num);
+			console.log(pList);
+			test();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<input type="button" name="" id="01" value="按钮1"   onclick="alert('01')" />-->
+		<!--<input type="button" name="02" id="02" value="按钮2"    onclick="b2()"/>-->
+		<input type="button" name="03" id="03" value="按钮3" />
+		<!--<input type="button" name="04" id="04" value="按钮4" />-->
+		<script type="text/javascript">
+			//第二种格式
+			/*var b2=function(){
+				alert("02");
+			}
+			*/
+			//第三种格式
+			var b3=document.getElementById("03");
+			b3.onclick=f3();
+			function   f3(){
+				alert("03");
+			}
+			//var b3=document.getElementById("03");
+			//b3.onclick=f3();
+			//第四种格式
+			/*var b4=document.getElementById("04");
+			      b4.onclick=function(){
+				alert("04");
+			}*/
+		</script>
+	</body>
+</html>

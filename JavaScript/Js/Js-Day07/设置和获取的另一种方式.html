@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var person={
+				"name":"无敌",
+				"age":"18",
+				"action":function(){
+					console.log("打人");
+				},
+			}
+			
+			for(key in person){
+				console.log(key+":"+person[key]);
+			}
+			
+			person.name="one";
+			console.log(person.name);
+			
+			person["name"]="two";
+			person["age"]=66;
+			console.log(person.name,person.age);
+		</script>
+	</body>
+</html>

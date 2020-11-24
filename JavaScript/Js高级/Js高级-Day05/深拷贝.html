@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--深拷贝: 把一个对象中的所有的属性或者是方法,一个一个找到,并且在另一个对象中开辟相应的空间,
+			              一个一个的存储到另一个对象中.-->
+		<script type="text/javascript">
+			var person1={                                                            //自变量方式创建对象person1（被拷贝对象）
+				name:"小芳",                                                          //普通属性
+				age:18,
+				car:["玛莎拉蒂","兰博基尼","布加迪"],                        //数组属性
+				dog:{                                                                      //对象属性
+					name:"小黑",
+					age:3,
+					play:function(){
+						console.log("活泼好动");
+					}
+				},
+				run:function(){                                                         //声明方法
+					console.log("走路");
+				}
+			};
+			person1.prototype={                                                   // 在原型对象追加属性和方法
+				sex:"女",
+				drink:function(){
+					console.log("每天都喝水");
+				}
+			}
+			
+			var person2={  };                                                         //创建一个空对象（将拷贝的属性和方法放入）
+			
+			function  deepCopy(x,y){                                             //深拷贝方法封装
+				for(var key in x){                                                     //for-in循环遍历person1对象
+					var item=x[key];                                                 //获取x对象中所有属性值，item是一个数组,封装了普通属性,数组,对象
+					if(item  instanceof  Array){                                  //判断这个属性的值是不是数组-是数组就要遍历
+						y[key]=[];                                                        //在b对象中开辟一个空间 - 数组
+						deepCopy(item,y[key]);                                   //调用自身函数,把a对象中的数组的属性一个个复制到b对象的数组中，此时item封装的是数组
+					}else if(item  instanceof  Object){                        //判断这个属性的值是不是对象-是对象就要遍历
+						y[key]={};                                                        //在b对象中开辟一个空间 - 对象
+						deepCopy(item,y[key]);                                   //调用自身函数,把a对象中的对象属性一个个复制到b对象的对象中，此时item封装的是对象
+					}else{                                                                  //遍历普通属性
+						y[key]=item;
+					}
+				}
+			}
+			
+			deepCopy(person1,person2);                                      //调用方法，实现深拷贝
+			console.log(person2);
+		</script>
+	</body>
+</html>

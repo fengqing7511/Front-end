@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 50px;
+				background-color: blue;
+			}
+			.cls{
+				width: 500px;
+				height: 200px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button"  id="b01" value="变换类名" />
+		<br />
+		<div id="d01"></div>
+		<script type="text/javascript">
+			    document.getElementById("b01").onclick=function(){
+				document.getElementById("d01").className="cls";
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 400px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/1.jpg" />
+		<img src="img/2.jpg" />
+		<img src="img/3.jpg" />
+		
+		<script type="text/javascript">
+			var arr=document.getElementsByTagName("img");
+			console.log(arr);
+			for(var i=0;i<arr.length;i++){
+				arr[i].onclick=function(){
+					alert("点击图片"+this.src);
+				}
+			}
+		</script>
+	</body>
+</html>

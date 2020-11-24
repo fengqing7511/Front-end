@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>遍历DOM树</title>
+	</head>
+	<body>
+		<div id="01">
+			<p>一</p>
+			<div id="02">
+				<p>二</p>
+				<div id="03">
+					<p>三</p>
+				</div>
+			</div>
+		</div>
+		<div id="aa">
+			<ul>
+				<li>斗破苍穹</li>
+			</ul>
+			<a href="#">百度</a>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var root=document.documentElement;                  //获取页面中的根节点--html
+		
+		function  traverseDom(parent){                              //遍历整个Dom,传入的是一个父节点(第一个父节点是根节点)
+			var children=parent.children;                             //获取父节点下的所有子节点
+			getChildren(children);                                        //遍历所有的子节点
+		}
+		
+		function  getChildren(children){                           
+			for(var i=0;i<children.length;i++){                        //遍历获取的所有子节点
+				var child=children[i];                                        //获取到每一个子节点
+				getnodeName(child);                                       //显示每一个子节点的名字
+				child.children&&traverseDom(child);                //判断这个子节点还有没有子节点，有就继续遍历
+			}
+		}
+		
+		function  getnodeName(child){                                 //封装获取子节点名的方法
+			console.log("子节点名: " + child.nodeName);
+		}
+		
+		traverseDom(root);                                                   //调用函数,传入根节点
+	</script>
+</html>

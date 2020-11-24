@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#d1{
+				width: 300px;
+				height: 300px;
+				background-color: #000000;
+			}
+			#d2{
+				width: 200px;
+				height: 200px;
+				background-color: green;
+			}
+			#d3{
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				<div id="d3">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript"  src="manyFunction.js" ></script>
+	<script type="text/javascript">
+		getId("d1").onclick=function(){
+			console.log(this.id);
+		}
+		getId("d2").onclick=function(){
+			window.event.cancelBubble=true;
+			console.log(this.id);
+		}
+		getId("d3").onclick=function(e){
+			e.stopPropagation();
+			console.log(this.id);
+		}
+	</script>
+</html>

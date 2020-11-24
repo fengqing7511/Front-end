@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串常用方法</title>
+		<script type="text/javascript">
+			/*1、获取字符串的长度  length*/
+			var str1 = "123456";
+			console.log(str1.length);//6
+			
+			/*2、charAt(下标);根据当前下标值获取对用的元素的值，
+			 但是如果给的下标不存在，会返回空字符 -- 不会报错*/
+			var str2 = "whatareyounongshalie";
+			var result = str2.charAt(5);
+			console.log(result);//r
+			var result1 = str2.charAt(1000);
+			console.log(result1);//""
+
+			/*3、fromCharCode可以从unioncode表中获取到对应的值 */
+			var str3 = String.fromCharCode(65,66,67);
+			console.log(str3);
+			
+			/*4、concat方法用于将几个字符串拼接成一个*/
+			var str4 = "小明";
+			console.log(str4.concat("喜欢","凤姐","是","真的"));//小明喜欢凤姐是真的
+			
+			/*5、indexOf方法用于根据传入的元素返回对应的下标 
+			 第一个参数是需要被查找的值，第二个参数表示从第几个开始找
+			 如果根据元素找不到下标则返回 -1*/
+			var str5 = "天青色等烟雨";
+			var index = str5.indexOf("等", 1);
+			console.log(index);//3
+			var index1 = str5.indexOf("我", 1);
+			console.log(index1);//-1
+			
+			/*6、replace方法用于替换字符串中的元素*/
+			/* 把花替换成瓜 */
+			var str6 = "故事的小黄花从出生那一年就飘着";
+			//找出这个花
+			if(str6.indexOf("花") != -1){//说明存在
+				//替换
+				//第一个参数是需要被替换的那个值，第二个参数是替换成的那个值
+				str6 = str6.replace("花","瓜");
+			}else{
+				console.log("不存在");
+			}
+			console.log(str6);//故事的小黄瓜从出生那一年就飘着
+			
+			/*7、slice方法用于截取字符串，
+			 含头不含尾，比如截取下标5~10的内容，那么从5开始，10是没有的
+			 返回的是截取后的字符串 */
+			var str7 = "如果有一天我邪恶了，请记住，我曾经纯洁过";
+			str7 = str7.slice(5, 10);
+			console.log(str7);//我邪恶了，
+			
+			/* 8、split(标记);根据传入的标记将字符串切开 */
+			var str8 = "乔峰|慕容|凤姐|梅超风|大蛇丸|鸣人";
+			var arr = str8.split("|");
+			for(var i=0; i<arr.length; i++){
+				console.log(arr[i]);
+			}
+			
+			/*9、抓换大小写*/
+			var str9 = "hello";
+			str9 = str9.toUpperCase();//抓换成大写
+			console.log(str9);//HELLO
+			str9 = str9.toLowerCase();//抓换成小写
+			console.log(str9);//hello
+			
+			/*10、trim方法用于去除字符串两边的空白，中间的空白不能去掉*/
+			var str10 = "  今天天气好晴朗    处处好风光       ";
+			str10 =str10.trim();
+			console.log("==="+str10+"===");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+

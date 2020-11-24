@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--闭包的概念:函数A中有一个函数B,函数B可以访问函数A中定义的变量或者是数据,此时就形成了闭包-->
+		<!--闭包的模式:函数模式的闭包, 对象模式的闭包-->
+		<!--闭包的优缺点: 缓存数据 - (缓存数据太多会影响性能)
+			  闭包的作用:缓存数据,延长作用域链-->
+		<script type="text/javascript">
+			//1.函数中的闭包
+			function  f(){
+				var num=5;                //缓存数据（这个数据放在外层函数和内存函数之间的位置）。局部变量在函数中，函数运行结束后，释放局部变量
+				//闭包---以下是缓存区域
+				//闭包后，局部变量的作用链会延长，内层函数无需额外声明变量，只需调用外层函数的局部变量即可
+				return function(){         //函数作为返回值使用
+					num++;
+					return num;
+				}
+			}
+			var ff=f();
+			console.log(ff());
+			
+			//2.对象中的闭包
+			(function (){
+				var num=20;
+				function   Student(age){
+					this.age=age;
+				}
+				Student.prototype.time=function(){
+					console.log("这位学生今年"+this.age+"岁");
+				}
+				var stu=new Student(num);
+				stu.time();
+			})();
+		</script>
+	</body>
+</html>

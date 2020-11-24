@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <script src="manyMethods.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            margin: 100px;
+            border: 1px solid red;
+            position: relative;
+        }
+
+        /*big的宽度为400，但是big下的img宽度为800，设置了big的overflow为hidden，所以图片只看到一部分*/
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .big img {
+            position: absolute;
+            border:1px solid red;
+        }
+        /*遮盖层，鼠标移上去的时候显示的黄色小块*/
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="small">
+        <img src="img/small.jpg" width="350" alt=""/>
+        <div class="mask"></div>
+        </div>
+        <div class="big"><img src="img/big.jpg" width="800" alt=""/></div>
+    </div>
+</body>
+
+<script>
+    //1.获取页面元素
+    var box = getId("box");
+    var smallbox = box.children[0];
+    var smallimg = smallbox.children[0];
+    var mask = smallbox.children[1];
+    var bigbox = box.children[1];
+    var bigimg = bigbox.children[0];
+    //2.鼠标移动到box盒子上，让mask层出现
+    //onmouseenter 没有冒泡
+    box.onmouseenter = function(){
+        mask.style.display = "block";
+        bigbox.style.display = "block";
+    }
+    box.onmouseleave = function(){
+        mask.style.display = "none";
+        //bigbox.style.display = "none";
+    }
+    box.onmousemove = function(e){
+        //获取鼠标在当前盒子中的位置
+        var maskX = getPage(e).pageX - this.offsetLeft;
+        var maskY = getPage(e).pageY - this.offsetTop;
+
+        //修改mask的位置
+        maskX = maskX - mask.offsetWidth/2;
+        maskY = maskY - mask.offsetHeight/2;
+
+        //让mask左边和上边不能移出去
+        maskX = (maskX > 0) ? maskX : 0;
+        maskY = (maskY > 0) ? maskY : 0;
+
+        //让mask右下不能移出去
+        //offsetWidth  边框以及边框以内
+        //clientWidth 边框以内
+        //scrollWidth 内容大小，包含和padding和滚动出去的内容
+        maskX = maskX > box.clientWidth - mask.offsetWidth ? box.clientWidth - mask.offsetWidth : maskX;
+        maskY = maskY > box.clientHeight - mask.offsetHeight ? box.clientHeight - mask.offsetHeight : maskY;
+
+        //改变mask的位置
+        mask.style.left = maskX + "px";
+        mask.style.top = maskY + "px";
+
+        //  mask移动的距离 / mask最大能够移动的距离  = 大图片移动的距离 / 大图片最大能够移动的距离
+        // 大图片移动的距离 = mask移动的距离 / mask最大能够移动的距离 * 大图片最大能够移动的距离
+        var maskMaxX = box.clientWidth - mask.offsetWidth;
+        var bigImgMaxX = bigimg.offsetWidth - bigbox.clientWidth;
+        var bigImgX = maskX / maskMaxX * bigImgMaxX;
+
+        var maskMaxY = box.clientHeight - mask.offsetHeight;
+        var bigImgMaxY = bigimg.offsetHeight - bigbox.clientHeight;
+        var bigImgY = maskY / maskMaxY * bigImgMaxY;
+
+        bigimg.style.left = -bigImgX + "px";
+        bigimg.style.top = -bigImgY + "px";
+    }
+</script>
+</html>

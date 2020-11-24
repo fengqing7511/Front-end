@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--浅拷贝:把一个对象的地址复制给另一个对象,使它们的指向相同-->
+		<!--浅拷贝只能拷贝由自变量方式创建的对象(构造函数创建的对象不支持拷贝)-->
+		<script type="text/javascript">
+			/*function  Person(name,age){
+				this.name=name;
+				this.age=age;
+				this,run=function(){
+					console.log("跑");
+				}
+			}
+			Person.prototype.eat=function(){
+				console.log("吃");
+			}
+			*/
+			var person={                                             //自变量方式声明对象person（被拷贝对象）
+				name:"king",                                         //普通属性
+				age:16,
+				car:["奔驰","宝马"],                                 //数组属性
+				dog:{                                                     //对象属性
+					age:5,
+					name:"betty",
+				},
+				run:function(){                                       // 声明方法
+					console.log("跑");
+				}
+			}
+			person.prototype={                                  // 在原型对象追加属性和方法
+				sex:"男",
+				play:function(){
+					console.log("爱玩");
+				}
+			}
+			
+			var student={ };                                        //创建一个空对象（将拷贝的属性和方法放入）
+			//function Student(){  }
+			
+			function  shallowCopy(x,y){                     //浅拷贝方法封装           
+				for(var key in x){                                  //使用for-in遍历x对象
+					y[key]=x[key];                                  //将x对象中的属性和方法一个个的复制给y对象
+				}
+			}
+			
+			shallowCopy(person,student);                  //调用浅拷贝方法
+			console.log(student);                               //输出拷贝后的student对象
+		</script>
+	</body>
+</html>

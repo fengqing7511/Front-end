@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 500px;
+				border:2px  solid  red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="b1" value="添加按钮" />
+		<input type="button" name="" id="b2" value="清除第一个按钮" />
+		<input type="button" name="" id="b3" value="清除全部按钮" />
+		<br />
+		<br />
+		<div id="d1"></div>
+	</body>
+	<script type="text/javascript"  src="manyFunction.js" ></script>
+	<script type="text/javascript">
+		var i=0;
+		getId("b1").onclick=function(){
+			i++;
+			var m=document.createElement("input");
+			m.style="button";
+			m.value="按钮"+i;
+			//setInnerText(m,"按钮"+i);
+			getId("d1").insertBefore(m,getId("d1").firstElementChild);
+		} 
+		
+		getId("b2").onclick=function(){
+			getId("d1").removeChild(getId("d1").firstElementChild);
+		}
+		
+		getId("b3").onclick=function(){
+			while(getId("d1").firstElementChild){
+					getId("d1").removeChild(getId("d1").firstElementChild);
+		}
+		}
+	</script>
+</html>

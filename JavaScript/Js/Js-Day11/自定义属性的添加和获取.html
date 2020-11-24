@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a    href="http://www.baidu.com"     >百度</a><br />
+		<a    href="http://www.jd.com"   >京东</a><br />
+		<a    href="http://www.163.com"   >网易邮箱</a>
+		
+		<script type="text/javascript">
+			var arr=document.getElementsByTagName("a");
+			for(var i=0;i<arr.length;i++){
+				arr[i].setAttribute("salary",Math.random()*10000);
+				arr[i].onclick=function(){
+					alert(this.getAttribute("salary"));
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--for循环-1~100内的奇数和及偶数和-->
+		<script>
+			var i=1;sum1=0;sum2=0;
+			for(;i<=100;++i){
+				if(i%2==0){sum1+=i;}
+				else{sum2+=i;}
+			}
+			console.log(sum1);
+			console.log(sum2);
+		</script>
+		<!--打印1~100能被7整除的数字-->
+		<script>
+			var h=1;result="";
+			for(;h<=100;++h){
+				if(h%7==0){
+					console.log(h);
+					result+=""+h;
+				}
+								console.log(result);
+			}
+		</script>
+	</body>
+</html>

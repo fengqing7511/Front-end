@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.计算给定数组 arr 中所有元素的总和 （数组中的元素均为 Number 类型）
+			function result(arr){
+				var sum=0;
+				for(var i=0;i<arr.length;i++){
+					sum+=arr[i];
+				}
+				return sum;
+			}
+			
+			console.log(result([1,2,3,4,5,6]));
+		</script>
+		<script type="text/javascript">
+			//2.移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组
+			function remove(arr,item){
+				var newArr=[];
+				for(var i=0;i<arr.length;i++){
+					if(arr[i]!=item){
+						newArr.push(arr[i]);
+					}
+				}
+				return newArr;
+			}
+			
+			console.log(remove([1,2,3,1,4,5,1,6,7,1,8,1,9,1],1));
+		</script>
+		<script type="text/javascript">
+			//3. 移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回
+			function remove(arr,item){
+				
+			}
+		</script>
+		<script type="text/javascript">
+			//5.删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组
+			function delete01(arr){
+				var newArr=arr.slice(0);
+				newArr.pop();
+				return newArr;
+			}
+			
+			console.log(delete01([1,2,3,4,5,6,7]));
+		</script>
+		<script type="text/javascript">
+			//6.删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组
+			function delete02(arr){
+				var newArr=arr.slice(0);
+				newArr.shift();
+				return newArr;
+			}
+			
+			console.log(delete02([1,2,3,4,5,6,7,8,9]));
+		</script>
+	</body>
+</html>

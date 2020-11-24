@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="b1" id="b1" value="隔行变色" />
+		<dl   id="d1">
+			<!--<dt>城市</dt>-->
+			<dd>合肥</dd>
+			<dd>上海</dd>
+			<dd>北京</dd>
+			<dd>江苏</dd>
+		</dl>
+		
+		<script type="text/javascript">
+			document.getElementById("b1").onclick=function(){
+			    var m=document.getElementById("d1");
+				var list=m.getElementsByTagName("dd");
+				for(var i=0;i<list.length;i++){
+					list[i].style.backgroundColor=i%2==0?"red":"blue";
+				}
+			}
+		</script>
+	</body>
+</html>

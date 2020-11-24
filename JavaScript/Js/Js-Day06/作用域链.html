@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作用域链</title>
+		<!-- 作用域链：可以理解为是一环套一环的作用域 -->
+	</head>
+	<body>
+		<script type="text/javascript">
+			var num1 = 10;//全局变量
+			function f1(){
+				var num2 = 20;//局部变量
+				/*console.log(num);*/
+				function f2(){
+					var num = 30;//局部变量
+					console.log(num1);
+					function f3(){
+						var num3 = 50;//局部变量
+						console.log(num);
+					}
+					f3(); //调用f3
+				}
+				f2();//调用f2
+			}
+			f1(); //调用f1
+			
+		</script>
+		<!--执行过程：
+			首先调用最外层的函数f1，通过函数f1来调用函数f2，逐层的往下调用，
+			从外而内执行，就像链条一样。
+			
+			变量的查找：
+			在作用域链中，局部变量的查找会先找到当前作用域中的变量，如果找不到则找外面一层中的匹配的变量，
+			如果一直找不到，那么就找匹配的全局变量，如果连全局变量都没有匹配的，则报错num is not defined
+		-->
+	</body>
+</html>

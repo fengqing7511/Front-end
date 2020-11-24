@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function f1(){
+				console.log("调用f1函数");
+				return function(){
+					console.log("此函数作为返回值使用");
+				};
+			}
+			    var f=f1();
+				f();
+		</script>
+	</body>
+</html>

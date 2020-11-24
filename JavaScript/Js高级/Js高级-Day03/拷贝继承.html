@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--拷贝继承的弊端：要么只能遍历自变量创建对象内的属性和方法，要么只能遍历自变量.prototype内的属性和方法-->
+		<script type="text/javascript">
+			var person={
+				name:"小明",
+				age:16,
+				sex:"男",
+			};
+			
+			//拷贝格式1
+			var stu1=person;
+			console.log(stu1.name,stu1.age,stu1.sex);
+			
+			//拷贝格式2
+			var stu2={};                            //自变量方式创建对象
+			for(var key in person){             //使用for--in循环实现拷贝继承
+				stu2[key]=person[key];         //注：只能遍历person内的资源，无法遍历person.prototype追加的资源
+			}
+			console.log(stu2.name,stu2.age,stu2.sex);
+		</script>
+	</body>
+	<script type="text/javascript">
+		var person={};
+		person.prototype={
+			name:"小芳",
+			age:25,
+			sex:"女",
+			drink:function(){
+				console.log(this.name+"一天喝5杯水");
+			}
+		}
+		
+		var teacher={};
+		for(var key in person.prototype){                           //注：Person中的属性和方法都在prototype中追加的，所以应遍历Person.prototype，而不是Person
+			teacher[key]=person.prototype[key];
+		}
+		console.log(teacher.name,teacher.age,teacher.sex);
+		teacher.drink();
+	</script>
+</html>

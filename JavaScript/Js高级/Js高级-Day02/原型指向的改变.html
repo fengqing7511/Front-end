@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function   Student(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			Student.prototype={
+				country:"China",
+				play:function(){
+					console.log("学生都会玩");
+				}
+			}
+			
+			function  Teacher(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			Teacher.prototype={
+				teach:function(){
+					console.log("老师教书育人");
+				}
+			}
+			
+			var stu=new Student("小明",15);
+			var tch=new Teacher("大树",35);
+			stu.play();
+			
+			var stu2=new Teacher("余人",26);
+			stu2.teach();
+			stu2.play();
+		</script>
+	</body>
+</html>

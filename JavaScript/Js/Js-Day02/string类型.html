@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>string类型</title>
+	</head>
+	<body>
+		<script>
+			var str1="one";str2="two";str3="50";str4="30";str5="5";num=2;n=str3/str5;
+			console.log(str1+" "+str2);                    //one two
+			console.log(str3+str4);                         //5030
+			console.log(str3-str4);                          //20(number类型)
+			console.log(str4*str5);                         //150(number类型)
+			console.log(str3/str5);                         //10(number类型)
+			/*一个字符串后面拼接一个数字，结果还是字符串*/
+			console.log(str2+str3+num);             //two502
+			console.log(str3*num);                       //100(number类型)
+			console.log(typeof(n));                        //输出结果为num类型
+		</script>
+	</body>
+</html>

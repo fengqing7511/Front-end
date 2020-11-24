@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				left:0;
+				top:0;
+				margin-top: 40px;
+				background-color: #000000;
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		     <input type="button" name="b1" id="b1" value="回调函数+透明度" />
+	         <div id="dv"></div>
+	</body>
+	<script type="text/javascript"  src="manyMethods.js" ></script>
+	<script type="text/javascript">
+		
+		function   getStyle(element,atter){
+	       return window.getComputedStyle?window.getComputedStyle(element,null)[atter]:
+	       element.currentStyle[atter]||0;
+          }
+		
+		function  animate(element,json,fn){
+			clearInterval(element.timeId);
+			element.timeId=setInterval(function(){
+				var flag=true;
+				for(var attr in  json){
+				var current=parseInt(getStyle(element,attr));
+				var target=json[attr];
+				var step=(target-current)/10;
+				step=step>0?Math.ceil(step):Math.floor(step);
+				current+=step;
+				element.style[attr]=current+"px";
+				if(current!=target){
+					/*return*/ flag=false;                                    //加了return之后会一步一步执行代码
+				}
+				}
+				
+				if(flag==true){
+					clearInterval(element.timeId);
+					if(fn){fn();}
+				}
+				
+				console.log("目标:"+target+",当前位置 :"+current+"每次移动步数:"+step);
+			},30);
+		}
+		
+		
+		getId("b1").onclick=function  f(){
+			var json1={"width":200,"height":200,"left":300,"top":200};
+			animate(getId("dv"),json1,function(){
+				var json2={"width":150,"height":150,"left":0,"top":0};
+				animate(getId("dv"),json2, f);
+			});
+		};
+	</script>
+</html>

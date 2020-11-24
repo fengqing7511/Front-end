@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="b01" id="b01" value="修改" />
+		<p  id="p01">无敌</p>
+		<div id="d01"></div>
+		<a href="http://www.baidu.com"  id="bd">百度</a>
+		<script type="text/javascript">
+			document.getElementById("b01").onclick=function(){
+				var m=document.getElementById("p01");
+				m.innerText="就这?";
+				
+				var n=document.getElementById("d01");
+			       n.innerText="so~~";
+			       
+			      var k= document.getElementById("bd");
+			      k.href="http://www.4399.com";
+			      k.innerText="4399小游戏";
+			}
+		</script>
+	</body>
+</html>

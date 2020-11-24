@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--apply和call方法是用于改变(彻底改变)this的指向，方法中的第一个参数表示指向-->
+		<!--apply和call方法的使用格式:对象.apply(指向,[值1,值2])     对象.call(指向,值1,值2)-->
+		<script type="text/javascript">
+			//自变量方式创建obj对象
+			var obj={          };
+			//创建f1函数
+			function  f1(num1,num2){
+				console.log("结果是:"+(num1+num2)+"|"+this);
+			}
+			//情况1:正常调用函数
+			f1(10,20);                                                      //结果是:30|[object Window]----普通函数中的this指向为Window
+			//情况2
+			//apply和call中未传入值或传入的值为null时,结果为NaN,this指向依然是Window
+			//f1为函数，但函数也是对象，可以调用方法
+			f1.apply();f1.call();                                          //结果是:NaN|[object Window]
+			f1.apply(null);f1.call(null);                               //结果是:NaN|[object Window]
+			//情况3
+			//apply和call中未声明指向，但是传入参数
+			f1.apply(null,[10,20]);f1.call(null,10,20);           //结果是:30|[object Window]
+			//情况4
+			//apply和call中声明指向且传入参数
+			f1.apply(obj,[20,30]);f1.call(obj,20,30);   //结果是:50|[object Object]-------指向的obj是对象Object类型
+		</script>
+	</body>
+	<script type="text/javascript">
+		function  Person(name){
+			this.name=name;
+		}
+		Person.prototype.eat=function(){
+			console.log(this.name+"每天都要吃饭");
+			return 0;
+		}
+		
+		function  Student(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		Student.prototype.time=function(){
+			console.log("这位学生今年"+this.age+"岁");
+		}
+		
+		var per=new Person("小明");
+		var stu=new Student("小芳",16);
+		
+		var stu1=per.eat.apply(stu);                          //小芳每天都要吃饭
+		var stu2=per.eat.call(stu);
+		var stu3=per.eat.apply(stu,[1,2]);               
+		var stu4=per.eat.call(stu,1,2); 
+		var stu5=per.eat.apply(stu,["k","p"]);          
+		var stu6=per.eat.call(stu,"k","p");
+		console.log(stu1,stu2,stu3,stu4);                     //0
+		stu.time();                                                     //这位学生今年16岁(stu的指向未发生改变,time方法可以调用)
+		stu1.time();stu2.time();                                 //stu1和stu2的指向发生改变(指向Person),Student原型对象中的time方法已经无法调用
+	</script>                                                        <!--stu1.time is not a function-->
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//正则表达式的两种创建方式
+			//1.通过构造函数创建
+			var reg=new RegExp(/\d{3}/);
+			var str="匹配3个数字:123";
+			console.log(reg.test(str));                      //true     找到123，匹配成功，返回true
+			
+			//2.通过自变量方式创建
+			var reg2=/\d{2,5}/;
+			var str2="匹配2~5个数字:123456";
+			console.log(reg2.test(str2));                  //true
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		 <script type="text/javascript">
+		 	function  Person(sex,country){ 
+		 		this.sex=sex;
+		 		this.country=country;
+		 	}
+		 	Person.prototype.eat=function(){
+		 		console.log("eat");
+		 	}
+		 	
+		 	function  Student(name,age){    
+		 		this.name=name;
+		 		this.age=age;
+		 	}
+		 	Student.prototype.drink=function(){
+		 		console.log("drink");
+		 	}
+		 	
+		 	//原型继承格式
+		 	Student.prototype=new Person("男","China");
+		 	Person.prototype.run=function(){
+		 		console.log("run");
+		 	}
+		 	Student.prototype.play=function(){
+		 		console.log("play");
+		 	}
+		 	
+		 	var stu1=new Student("小明",16);
+		 	console.log(stu1.name);
+		 	console.log(stu1.country);
+		 	stu1.eat();
+		 	//stu1.drink();
+		 	stu1.run();
+		 	stu1.play();
+		 	
+		 	var stu2=new Student("小芳",18);
+		 	stu2.sex="女";
+		 	console.log(stu2.name,stu2.country,stu2.sex);
+		 	stu2.eat();
+		 </script>
+	</body>
+</html>

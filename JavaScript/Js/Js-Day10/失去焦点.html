@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="t01" id="t01" value="" />
+		
+		<script type="text/javascript">
+			document.getElementById("t01").onblur=function(){
+				if(this.value.length>=4&&this.value.length<=6){
+					this.style.backgroundColor="blue";
+				}else{
+					this.style.backgroundColor="red";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<dl   id="d1">
+			<dd>合肥</dd>
+			<dd>上海</dd>
+			<dd>北京</dd>
+			<dd>江苏</dd>
+		</dl>
+		
+		<script type="text/javascript">
+				var m=document.getElementById("d1");
+				var list=document.getElementsByTagName("dd");
+				for(var i=0;i<list.length;i++){
+					list[i].onmouseover=function(){
+						this.style.backgroundColor="blue";
+					}
+					list[i].onmouseout=function(){
+						this.style.backgroundColor="";
+					}
+				}
+		</script>
+	</body>
+</html>

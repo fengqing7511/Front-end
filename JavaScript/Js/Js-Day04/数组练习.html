@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.求数组中所有元素的和
+			var arr1=[12,15,99,86,63,74];sum=0;
+			for(var i=0;i<arr1.length;i++){
+				sum+=arr1[i];
+			}
+			console.log("数组元素之和为"+sum);
+			var  avg=sum/arr1.length;
+			console.log("数组元素平均值为"+avg);
+		</script>
+		<script type="text/javascript">
+			//2.求数组元素的最大值和最小值
+			var arr2=[62,99,885,55,1230,845,651];max=arr2[0];min=arr2[0];
+			for(var j=1;j<arr2.length;j++){
+				if(max<arr2[j]){max=arr2[j];}
+			}
+			console.log("数组元素最大值为"+max);
+			for(var h=1;h<arr2.length;h++){
+				if(min>arr2[h]){min=arr2[h];}
+			}
+			console.log("数组元素最小值为"+min);
+		</script>
+	</body>
+</html>

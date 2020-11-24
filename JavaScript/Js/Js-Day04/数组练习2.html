@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var ACG=["死神","刀剑","海贼王","肖申克","阿甘正传"];str="";
+			for(var i=0;i<ACG.length;i++){
+				if(i!=ACG.length-1){
+					str+=(ACG[i]+"|");
+				}else{str+=ACG[i];}
+			}
+			console.log(str);
+		</script>
+		<script type="text/javascript">
+			var arr=[12,0,65,805,66,0,0,97,0];
+			var arr1=[];
+			for(var j=0;j<arr.length;j++){
+				if(arr[j]!=0){arr1[arr1.length]=arr[j];}
+			}
+			console.log(arr1);
+		</script>
+		<script type="text/javascript">
+			var arr3=[10,55,25,63,99,54];
+			for(var s=0;s<arr3.length/2;s++){
+				var temp=arr3[s];
+				arr3[s]=arr3[arr3.length-s-1];
+				arr3[arr3.length-s-1]=temp;
+			}
+			console.log(arr3);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var person={
+				name:"king",
+				age:16,
+			};
+			person.prototype={
+				sex:"男",
+				country:"China",
+				play:function(){
+					console.log("打篮球很厉害");
+				}
+			};
+			//拷贝继承格式1
+			var stu1=person;
+			console.log(stu1.name,stu1.age);
+			stu1=person.prototype;
+			console.log(stu1.sex,stu1.country);
+			stu1.play();
+			
+			//拷贝继承格式2   for--in循环
+			var stu3={};
+			for(var key in person){
+				stu3[key]=person[key];
+			}
+			for(var key in person.prototype){
+				stu3[key]=person.prototype[key];
+			}
+			console.log(stu3.name,stu3.age,stu3.sex,stu3.country);
+			stu3.play();
+		</script>
+	</body>
+</html>

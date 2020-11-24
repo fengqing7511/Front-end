@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function isRunyear(year){
+				return year%4==0&&year%100!=0||year%400==0;
+			}
+			
+			function getDays(year,month,day){
+				var days=day;
+				if(month<2){return days;}
+				else{
+				var months=[31,28,31,30,31,30,31,31,30,31,30,31];
+				for(var i=0;i<month-1;i++){
+					days+=months[i];
+				}
+				if(month>2&& isRunyear(year)){days++;}
+				return days;
+				}
+			}
+			
+			var x=parseInt(prompt("输入年："));
+			var y=parseInt(prompt("输入月："));
+			var z=parseInt(prompt("输入日："));
+			var t=getDays(x,y,z);
+			alert("今天是今年的第"+t+"天");
+		</script>
+	</body>
+</html>

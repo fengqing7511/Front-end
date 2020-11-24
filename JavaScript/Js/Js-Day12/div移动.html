@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 40px;
+				height: 30px;
+				background-color: #000000;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<br />
+		<br />
+		<input type="button" name="b1" id="b1" value="向右移动400px" />
+		<input type="button" name="b1" id="b2" value="向右移动800px" />
+	</body>
+	<script type="text/javascript"   src="manyFunction.js" ></script>
+	<script type="text/javascript">
+		getId("b1").onclick=function(){
+			var timeId=setInterval(function(){
+				var currentLeft=getId("d1").offsetLeft;
+				currentLeft+=10;
+				if(currentLeft<=400){
+					getId("d1").style.left=currentLeft+"px";
+				}else{
+					clearInterval(timeId);
+				}
+			},20);
+		}
+	</script>
+</html>

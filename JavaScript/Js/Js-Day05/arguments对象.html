@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function f1(){
+				console.log(arguments.length);
+				console.log(arguments);
+			}
+			f1();
+		</script>
+		<script type="text/javascript">
+			function f2(){
+				console.log(arguments.length);
+				console.log(arguments);
+				var sum=0;
+				for(var i=0;i<arguments.length;i++){
+					sum+=arguments[i];
+				}
+				return sum;
+			}
+			console.log(f2(22,55,23));
+		</script>
+	</body>
+</html>

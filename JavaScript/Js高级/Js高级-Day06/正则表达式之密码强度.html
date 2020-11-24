@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#dv{
+				height: 300px;
+				width: 300px;
+				position: absolute;                                           /*设置浮动--脱离文档流*/
+				left:40%;                                                          /*设置偏移量*/
+				top:100px;
+			}
+			.securityLv0{
+				height: 10px;
+				width: 160px;
+				border:1px  solid  gray;
+				padding: 2px;
+			}
+			.securityLv1{
+				background-color: red;
+				height: 10px;
+				width: 40px;
+				border:1px  solid  gray;
+				padding: 2px;
+				}
+			.securityLv2{
+				background-color: orange;
+				height: 10px;
+				width: 80px;
+				border:1px  solid  gray;
+				padding: 2px;
+			}
+			.securityLv3{
+				background-color: green;
+				height: 10px;
+				width: 120px;
+				border:1px  solid  gray;
+				padding: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dv">
+			<label   for="pas">输入密码：</label>                                                  <!--点击label标签内的内容，自动选中绑定的input框-->
+			<p><input type="text"   id="pas" value=""  maxlength="15"/></p>                   <!--id名与label标签中的for属性值相同，实现绑定-->
+			<p> 密码强度：</p>
+			<div id="dv2"  class="securityLv0"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("pas").onkeyup=function(){                                 //键盘抬起事件
+			var Lv=getLv(this.value);
+			if(this.value.length<6||this.value.length>15){
+				document.getElementById("dv2").className="securityLv0";
+			}else{
+				document.getElementById("dv2").className="securityLv"+Lv;              //改变class类名
+			}
+		}
+		
+		function  getLv(pwd){
+			var Lv=0;
+			                                                                    //正则表达式的两种创建方式
+			var reg1=/[0-9]|/;                                          //1.通过自变量方式创建
+			var reg2=new RegExp(/[a-zA-Z]/);                 //2.通过构造函数创建（RegExp是js系统中提供好的一个对象,专门用于支持正则表达式匹配的）
+			if(reg1.test(pwd)){                                         //判断输入的文本中是否含数字（test()方法是RegExp对象中的方法,用于验证匹配）
+				Lv++;
+			}
+			if(reg2.test(pwd)){                                         //判断输入的文本中是否含字母
+				Lv++;
+			}
+			if(/[^0-9a-zA-Z]/.test(pwd)){                         //判断输入的文本中是否含特殊符号（包括汉字）
+				Lv++;
+			}
+			return Lv;
+		}
+	</script>
+</html>

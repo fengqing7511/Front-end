@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//g:全局匹配    i:忽略大小写     (g和i写在正则表达式后面)
+			var str1="kkmjAAhaa";
+			var str2="10086,what,pity,23456,012";
+			//var str3="2020-10-10";
+			var reg1=new RegExp(/[a]/gi);                                                             //构造函数创建正则表达式规则
+			var y=str2.match(/\d{4}/g);                                                                  //match()方法是字符串的方法.返回的是符合匹配的元素(数组)
+			//var reg3=str3.match(/(\d{4})+[-]+(\d{2})+[-]+(\d{2})/gi);                    //自变量方式创建正则表达式规则
+			var x=str1.replace(reg1,"Q");                                                               //replace是字符串中的方法，用来替换字符串
+			//var y=str3.RegExp.$3;
+			console.log(x);
+			console.log(y);
+			console.log(z);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="b1" id="b1" value="变换p标签背景色" />
+		<br />
+		<br />
+		<div id="d1">
+			<p>p标签1</p>
+			<span >span标签1</span>
+			<p>p标签2</p>
+			<span >span标签2</span>
+			<p>p标签3</p>
+			<span >span标签3</span>
+		</div>
+		<script type="text/javascript"  src="getId.js" ></script>
+		<script type="text/javascript">
+			getId("b1").onclick=function(){
+				var arr=getId("d1").childNodes;
+				for(var i=0;i<arr.length;i++){
+					if(arr[i].nodeType==1&&arr[i].nodeName=="P"){
+						arr[i].style.backgroundColor="blue";
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function  Person(name,age,country){
+				this.name=name;
+				this.age=age;
+				this.country=country;
+			}
+			Person.prototype.say=function(){
+				console.log("说话");
+			}
+			
+			function  Student(name,age,sex){
+				//无需改变Student.prototype的指向
+				//也不用无脑继承父级的属性，只需要继承子级需要的属性就可以了
+				Person.call(this,name,age);       //只继承父级的name,age，不继承父级的country
+				this.sex=sex;                            //父级没有定义的属性要定义
+			}
+			
+			var stu=new  Student("小芳",16,"女");
+			console.log(stu.name,stu.age,stu.sex);
+			//缺点：只能继承父级的属性，无法继承父级的方法
+			stu.say();
+		</script>
+	</body>
+</html>

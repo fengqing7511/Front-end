@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: black;
+			}
+			.c1{
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="b1" value="自定义属性移除" />
+		<br />
+		<br />
+		<div id="d1"    class="c1"></div>
+		
+		<script type="text/javascript"   src="getId.js" ></script>
+		<script type="text/javascript">
+			getId("b1").onclick=function(){
+				//getId("d1").className="";
+				getId("d1").removeAttribute("class");
+			}
+		</script>
+	</body>
+</html>

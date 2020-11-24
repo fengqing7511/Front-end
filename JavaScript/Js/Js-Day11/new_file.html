@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点击切换背景图片</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background-image: url("../img/1.jpg");/*默认是第一张图片*/
+			}
+			#mask{
+				background-color: rgba(255,255,255,0.3);
+				height: 200px;
+				text-align: center;
+			}
+			#mask img{
+				width: 200px;
+				margin-top: 35px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body id="bd">
+		<div id="mask">
+			<img src="../img/1.jpg"/>
+			<img src="../img/2.jpg"/>
+			<img src="../img/3.jpg"/>
+		</div>
+	</body>
+	<!--js脚本-->
+	<script src="common.js"></script>
+	<script type="text/javascript">
+		//获取到所有的图片
+		var imgObjs = my$("mask").children;//获取到的是子元素
+		//循环遍历这个数组
+		for(var i=0;i<imgObjs.length;i++){
+			//对每一张图片绑定点击事件
+			imgObjs[i].onclick = function(){
+				//需要改变的是背景，所使用body
+				//this.src表示每一张被选中的图片的路径
+				document.body.style.backgroundImage = "url(" + this.src + ")";
+			};
+		}
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width:300px;
+				height: 200px;
+				background-color:blue ;
+			}
+		</style>
+		<script type="text/javascript">
+			function changeColor(){
+				var str="#";
+				var arr=["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+				for(var i=0;i<6;i++){
+					var num=parseInt(Math.random()*16);
+					str+=arr[num];
+				}
+				return str;
+			}
+			
+			window.onload=function(){
+				document.getElementById("color").style.backgroundColor=changeColor();
+			}
+			console.log(changeColor());
+		</script>
+	</head>
+	<body>
+		<div id="color"></div>
+	</body>
+</html>

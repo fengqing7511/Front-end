@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//定时器中的this指向----Window
+			/*setInterval(function(){
+				console.log(this);
+			},1000);*/
+			
+			//普通函数中的this指向--Window
+			function  f1(){
+				console.log(this);
+			}
+			f1();
+			
+			//对象.方法中的this指向----当前的对象（Student {play: ƒ}）
+			function  Person(){
+				console.log(this);
+				this.play=function(){
+					console.log(this);
+				}
+			}
+			//原型对象方法中的this指向-----实例对象（Student {play: ƒ}）
+			Person.prototype.drink=function(){
+				console.log(this);
+			}
+			var stu=new Person();
+		    stu.play();
+		    stu.drink();
+		</script>
+	</body>
+</html>

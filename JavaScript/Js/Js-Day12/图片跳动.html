@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 400px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="b1" id="b1" value="摇动" />
+		<input type="button" name="b2" id="b2" value="停止" />
+		<div id="d1">
+			<img src="img/1-small.jpg"/>
+			<img src="img/2-small.jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript"   src="manyFunction.js" ></script>
+	<script type="text/javascript">
+		var timeid="";
+		getId("b1").onclick=function(){
+			timeid=setInterval(function(){
+				var x=parseInt(Math.random()*100+1);
+				var y=parseInt(Math.random()*100+1);
+				getId("d1").style.left=x+"px";
+				getId("d1").style.top=y+"px";
+			},10);
+		}
+		
+		getId("b2").onclick=function(){
+			clearInterval(timeid);
+		}
+	</script>
+</html>

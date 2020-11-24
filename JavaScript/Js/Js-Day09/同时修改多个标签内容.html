@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 150px;
+				background-color: blue;
+			}
+			
+			#d2{
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="b01" id="b1" value="修改第一个div" />
+		<div id="d1">
+			<p>君不见大河之水天上来</p>
+			<p>奔流到海不复回</p>
+			<p>君不见高堂明镜悲白发</p>
+			<p>朝如青丝暮成雪</p>
+		</div>
+		<input type="button"  id="b2" value="修改第二个div" />
+		<div id="d2">
+			<input type="text"  value="文本1" />
+			<input type="text"  value="文本2" />
+			<input type="text"  value="文本3" />
+		</div>
+		
+		<script type="text/javascript">
+			document.getElementById("b1").onclick=function(){
+				var m=document.getElementById("d1");
+				var arr1=m.getElementsByTagName("p");
+				for(var i=0;i<arr1.length;i++){
+				arr1[i].innerText="你是真皮沙发";
+				}
+			}
+			
+			document.getElementById("b2").onclick=function(){
+				var k=document.getElementById("d2");
+				var arr2=k.getElementsByTagName("input");
+				for(var j=0;j<arr2.length;j++){
+					if(arr2[j].type=="text"){
+						arr2[j].value="气不气";
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

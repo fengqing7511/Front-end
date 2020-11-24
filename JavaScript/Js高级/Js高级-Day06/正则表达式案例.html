@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="">
+			输入中文名(2~6个汉字)：
+			<input type="text" name="username" id="username" value="" />
+		</div>
+		<div id="">
+			输入邮箱名(至少5个数字，一个@，字母或数字，一个点和com/cn)：
+			<input type="text"  id="email" value="" />
+		</div>
+	</body>
+	<!--[\u4e00-\u9fa5]表示:
+			“\u4e00”和“\u9fa5”是unicode编码中中文编码的开始和结束的两个值，
+			   所以这个正则表达式可以用来判断字符串中是否包含中文。-->
+	<script type="text/javascript">
+		document.getElementById("username").onblur=function(){
+			var username=/^[\u4e00-\u9fa5a]{2,6}$/;
+			if(username.test(this.value)){
+				this.style.backgroundColor="yellow";
+			}else{
+				this.style.backgroundColor="blue";
+			}
+		}
+	</script>
+	<!--电子邮箱案例-->
+	<script type="text/javascript">
+		document.getElementById("email").onblur=function(){
+			var emailname=/^[0-9a-zA-Z]+[@][0-9a-zA-Z]+([.][com]|[cn])$/;
+			if(emailname.test(this.value)){
+				this.style.backgroundColor="yellow";
+			}else{
+				this.style.backgroundColor="blue";
+			}
+		}
+	</script>
+</html>

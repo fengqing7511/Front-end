@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function  Animal(weight){
+				this.weight=weight;
+			}
+			Animal.prototype.eat=function(){
+				console.log("动物生而为吃");
+			}
+			
+			function  Dog(color){
+				this.color=color;
+			}
+			Dog.prototype=new Animal();
+			Dog.prototype.bite=function(){
+				console.log("狗偶尔会咬人");
+			}
+			
+			function  Husky(weight,color,sex){
+				Animal.call(this,weight);
+				Dog.call(this,color);
+				this.sex=sex;
+			}
+			Husky.prototype=new Dog();
+			Husky.prototype.dealer=function(){
+				console.log("二哈经常拆家");
+			}
+			
+			var husky=new Husky("6公斤","white","male");
+			console.log(husky.weight,husky.color,husky.sex);
+			husky.eat();
+			husky.bite();
+			husky.dealer();
+		</script>
+	</body>
+</html>
