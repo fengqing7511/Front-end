@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态图片墙</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width:882px;                               /*将div块的长度设置于所展示全部图片(不重复)的总长度*/
+            height: 86px;                              /*将div块的高度设置于所展示图片的高度*/
+            overflow: hidden;                          /*隐藏重复图片*/
+            margin: 100px auto;
+        }
+        ul{
+            width: 200%;                               /*设置动画函数步骤：*/
+            animation-name: flow;                      /*1.设置动画名称*/
+            animation-duration:7s;                     /*2.设置动画耗时*/
+            animation-iteration-count: infinite;       /*3.设置无限循环*/
+            animation-timing-function: linear;         /*4.设置时间函数*/
+        }
+        ul>li{
+            width: 126px;                              /*将li标签的宽高设置成与图片的宽高相同*/
+            height: 86px;
+            list-style: none;
+            display: inline-block;
+            float: left;
+        }
+        ul:hover{
+            animation-play-state: paused;              /*动画效果--暂停*/
+        }
+
+        /*创建动画
+			 @keyframes规则是css3中新增规则，目前主流浏览器都支持该规则（加浏览器对应的前缀），
+			   但不兼容IE 9以及更早版本的浏览器。*/
+        @keyframes flow{                               /*与自定义的动画名*/
+            from{transform:translateX(0);}             
+            to{transform:translateX(-882px);}
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href=""><img src="images/1.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/2.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/3.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/4.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/5.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/6.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/7.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/1.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/2.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/3.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/4.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/5.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/6.jpg" alt=""/></a></li>
+            <li><a href=""><img src="images/7.jpg" alt=""/></a></li>
+        </ul>
+    </div>
+</body>
+</html>

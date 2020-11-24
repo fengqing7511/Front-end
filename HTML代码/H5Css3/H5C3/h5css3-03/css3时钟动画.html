@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3时钟动画</title>
+    <style>
+        .clock{
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            border-radius: 50%;
+            border: 20px solid #ccc;
+            position: relative;
+        }
+        .line{
+            width: 10px;
+            height: 400px;
+            position: absolute;
+            left: 50%;
+            background-color: #ccc;
+            transform:translate(-50%,0);
+        }
+        .line1{
+            transform:translate(-50%,0) rotate(30deg);
+        }
+        .line2{
+            transform:translate(-50%,0) rotate(60deg);
+        }
+        .line3{
+            transform:translate(-50%,0) rotate(90deg);
+        }
+        .line4{
+            transform:translate(-50%,0) rotate(120deg);
+        }
+        .line5{
+            transform:translate(-50%,0) rotate(150deg);
+        }
+        .shade{
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform:translate(-50%,-50%);
+        }
+        .circle{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ccc;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform:translate(-50%,-50%);
+        }
+        .hour{
+            width: 15px;
+            height: 100px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: skyblue;
+            transform:translate(-50%,-100%);
+            animation-name: move;
+            animation-duration: 43200s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            transform-origin:bottom center;
+        }
+        .minutes{
+            width: 7px;
+            height: 130px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: green;
+            transform:translate(-50%,-100%);
+            animation-name: move;
+            animation-duration: 3600s;
+            animation-iteration-count: infinite;
+            animation-timing-function:linear;
+            transform-origin:bottom center;
+        }
+        .seconds{
+            width: 3px;
+            height: 155px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: red;
+            transform:translate(-50%,-100%);
+            animation-name: move;
+            animation-duration: 60s;
+            animation-iteration-count: infinite;
+            animation-timing-function: steps(60);
+            transform-origin:bottom center; 
+        }
+        @keyframes move{
+           from{ transform:translate(-50%,-100%) rotate(0);}
+           to{ transform:translate(-50%,-100%) rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="line"></div>
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+        <div class="line line4"></div>
+        <div class="line line5"></div>
+        <div class="shade"></div>
+        <div class="circle"></div>
+        <div class="hour"></div>
+        <div class="minutes"></div>
+        <div class="seconds"></div>
+    </div>
+</body>
+</html>

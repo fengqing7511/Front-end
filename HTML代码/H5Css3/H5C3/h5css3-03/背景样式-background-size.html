@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>背景样式-background-size</title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 500px;
+				border: 1px solid red;
+				/*添加背景图片*/
+				background-image:url("images/bg-img.jpg");
+				background-repeat: no-repeat;
+				/*设置背景图片的大小： 宽度/高度        宽度/auto（保持比例的自动缩放）  
+				 建议：在使用这个属性之前要确定宽度和高度与容器的比例是否一致，否则会造成图片失真变形*/
+				background-size: 300px 500px;
+				background-size: 300px;
+				/*设置百分比:各占容器宽高的一半*/
+				background-size: 50% 50%;
+				
+				/* 设置cantain：按照比例调整图片大小，使用图片宽高自适应这个元素的背景区域，使图片全部包含在容器内
+				 * 1.图片大于容器：有可能会造成容器的空白区域，将图片缩小
+				 * 2.图片小于容器：有可能造成容器的空白区域，将图片放大
+				 */
+				background-size: contain;
+				
+				/*cover:与cantain相反，背景图片会按比例缩放自适应整个背景区域
+				 1.图片大于容器：等比例缩小，会填充满整个区域，有可能造成部分不可见
+				 2.图片小于容器：等比例放大，填充满整个区域，图片可能会向某个方向溢出
+				 */
+				background-size: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

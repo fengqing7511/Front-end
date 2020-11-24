@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>h5-FileReader使用</title>
+		<style type="text/css">
+			div{
+				height: 20px;
+				width: 0%;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="">
+			文件:<input type="file" name="myFile" id="myFile" onchange="getFileContent();" /><br />
+			<div></div><!--这个div是为了显示进度-->
+			<input type="submit" value="提交"/>
+		</form>
+		<img src="" alt=""/>
+
+		<script type="text/javascript">
+			var div = document.querySelector("div");
+
+			function getFileContent(){
+				/*1,创建一个文件读取的对象*/
+				var reader = new FileReader();
+				/* 2.读取文件,获取DateURL
+				 * 文件存储在file表达元素的files属性中,他是一个数组
+				 */
+				var file = document.querySelector("#myFile").files;
+				reader.readAsDataURL(file[0]);
+				
+				//获取数据
+				reader.onload = function(){
+					console.log(reader.result);
+					//展示
+					document.querySelector("img").src = reader.result;
+				}
+				
+				/*进度条处理*/
+				reader.onprogress = function(e){//e是事件参数
+					var percent = e.loaded/ e.total*100+"%";
+					div.style.width = percent;
+				}
+			}
+		</script>
+	</body>
+</html>

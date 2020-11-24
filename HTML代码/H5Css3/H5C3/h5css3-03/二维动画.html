@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3二维动画</title>
+    <style>
+        div{
+            width: 70px;
+            height: 70px;
+            background-color: skyblue;
+            margin: 20px 30px;
+            /*添加过渡动画  css样式名称  耗时*/
+            transition: transform 1s;
+        }
+        /* 激活动画 active-点击 */
+        div:first-of-type:active{
+            background-color: red;
+            /* translate(平移)：a、移动参照元素的左上角    b、执行完毕以后恢复到原来的状态 */
+            /* 1.如果一个参数表示x轴。2.如果两个参数就能代表x/y方向 */
+            transform:translate(200px,200px);
+            /*通常在设置的时候使用X和Y*/
+            transform:translateX(200px);
+            transform:translateY(200px);
+        }
+        div:nth-of-type(2):active{
+            background-color: green;
+            /* scale(缩放)：1表示不缩放，大于1表示放大，小于1表示缩小 */
+            /* 1.如果只有一个参数，就代表x/y方向都进行等比缩放  2.如果是两个参数就x/y方向 */
+            transform:scale(0.5,0.2);
+            /*通常在设置的时候使用X和Y*/
+            transform:scaleX(0.5);
+            transform:scaleY(0.2);
+        }
+        div:nth-of-type(3):active{
+            background-color: pink;
+            /* rotate(旋转) */
+            /* 1.设置旋转轴心---方向坐标(left top right bottom center)和数值坐标(以左上角为参考)*/
+            transform: left top;
+            /* 2.设置旋转角度     可以同时设置多个动画效果---向右平移500px并且在平移过程中逆时针旋转90度 */
+            transform: translate(200px,200px)  rotate(-90deg);
+        }
+        div:nth-of-type(4):active{
+            /* skew(斜切) */
+            background-color: #ccc;
+            /* 如果角度为正，则往当前轴的负方向斜切，如果角度为负，则往当前轴的正方向斜切 */
+            transform: skew(30deg,30deg);
+             /*通常在设置的时候使用X和Y*/
+            transform: skewX(30deg);
+            transform: skewY(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div>平移</div>
+    <div>缩放</div>
+    <div>旋转</div>
+    <div>斜切</div>
+</body>
+</html>

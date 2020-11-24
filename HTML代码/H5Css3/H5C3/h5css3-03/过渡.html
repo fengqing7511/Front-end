@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>过渡</title>
+		<!-- 过渡是css3中的动画效果 -->
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				position: absolute;/*绝对定位*/
+				left: 100px;/*偏移量*/
+				top: 100px;
+				/*添加过渡效果：过渡效果执行完毕之后，默认回到原始状态*/
+				/*1.transition-property：添加过渡效果的样式属性名称*/
+				transition-property: left;
+				/*2.transition-duration:过渡的耗时  以秒为单位 */
+				transition-duration: 2s;	
+				/*3.transition-timing-function:设置时间函数--控制运动的速度*/
+				transition-timing-function: linear;
+				/*4.过渡的延迟效果*/
+				transition-delay: 2s;
+				
+				/*简写：transition:属性名称 过渡时间 时间函数 延迟*/
+				transition: left 2s linear 0s;
+				
+				/*为多个样式同时添加过渡效果*/
+				transition: left 5s linear 0s,background-color 5s linear 0s;
+				
+			}
+			/*激活过渡效果：单击*/
+			div:active{
+				left: 1000px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html

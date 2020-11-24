@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景样式</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            overflow: scroll;
+            /* 1.设置背景图片:如果图片大于容器，那么默认从容器的左上角开始放置
+				             如果图片小容器，那么图片就会平铺 */
+            background-image: url("images/bg-img.jpg");    /*图片大于容器*/
+            background-image: url("images/1.jpg");         /*图片小于容器*/
+            /* 2.设置背景的平铺 */
+            /* round：会将图片进行缩放之后再平铺,图片之间没有间隙
+			   space：图片不会缩放平铺，只会在图片之间产生相同的间距值 */
+            background-repeat: space;
+            /* 3.设置滚动容器的背景的行为：fixed：背景图片的位置固定不变
+			                             scroll：当滚动容器的时候，背景图片不会随着内容滚动
+                                         local:当滚动容器的时候,背景图片会跟随内容一起滚动*/
+            background-attachment:local;
+        }
+        p{
+            width: 400px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+</html>

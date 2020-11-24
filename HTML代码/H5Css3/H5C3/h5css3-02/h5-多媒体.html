@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--    embed:可以直接插入音频视频.本质是通过本机安装的音频视频软件来播放的,兼容性不好
+			flash:1.学习成本高,使用成本高     2.iphone,ipad不支持flash
+    -->
+    
+    <!-- h5中提供的标签好处是不需要提前安装软件,浏览器就直接支持,运行的效率比较高,兼容性好 -->
+
+    <!-- 1.音频标签:audio(行内块元素)
+			属性:
+			src      - 播放文件的路径
+			controls - 音频播放器的控制器
+			autoplay - 自动播放
+			loop     - 循环播放
+    -->
+    <!-- 必须要有controls属性，否则音频无法显示 -->
+    <audio src="mp3/see you again.mp3"  autoplay controls loop></audio>        
+
+    <!--
+		2.视频播放:video(行内块元素)
+		属性:
+		src      - 播放文件的路径
+		controls - 音频播放器的控制器
+		autoplay - 自动播放
+		loop     - 循环播放
+		poster   - 指定视频还没有完全下载完毕,或者用户没有点击前显示的封面.默认值是当前视频文件的第一个图像.
+		width    - 视频的的宽度
+		height   - 视频的高度
+    -->
+    <!-- 必须要有controls属性，否则音频无法显示 -->
+    <video src="mp3/flv.flv" controls></video>
+
+    <!--
+		补充:
+		视频有高度和宽度属性,在设置的时候建议只设置宽度或者是高度,让视频自动缩放.
+		因为在设置视频尺寸的时候其实并不是真正的将视频的画面大小设置,而只是将视频的
+		占据的区域设置为指定大小.
+	-->
+
+    <!--  为了避免浏览器有可能出现的不支持视频格式的情况,我们通常会一次性放入几个常用主流格式的视频文件
+		  浏览器会自动找到支持的格式播放 - source
+	-->
+	<video controls>
+		<!--同时放入多个播放源-->
+		<source src="mp3/flv.flv" type="video/flv">
+		<source src="mp3/mp4.mp4" type="video/mp4">
+	</video>
+</body>
+</html>

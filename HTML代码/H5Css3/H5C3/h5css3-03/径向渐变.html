@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>径向渐变</title>
+    <!-- 径向渐产生的也是图像，所以属性background -->
+    <!-- 格式:background:radial-gradient(形状 尺寸 坐标，颜色1，颜色2，....) -->
+    <!-- 
+        形状：circle等形状，会去适配当前的方形如果高度不一样默认的效果是ellipse
+        坐标：方向坐标：left，right,top,bottom,center
+              数值坐标:默认的是元素的正中心，可自定义，此时坐标从元素左上角开始计算
+        尺寸：closest-side-最近边
+              farthest-side-最远边
+              clostest-corner-最近角
+              farthest-corner-最远角(默认)
+    -->
+    <!-- 注：形状大小坐标之间用空格隔开，不要用逗号隔开，否则会出错
+             设置坐标时前面要加at
+             形状-尺寸-坐标 要按照先后顺序写，否则会出错 -->
+    <style>
+        div{
+            display: inline-block;
+        }
+        /* 用过滤选择器来选择对应的div */
+        /* 格式：便签：nth-of-type(对应的标签) */
+        div:nth-of-type(1){
+            width: 200px;
+            height: 200px;
+            /* 默认情况--坐标在正中心 ，会去适配当前的方形，默认的效果是ellipse*/
+            background: radial-gradient(red,green);
+        }
+        div:nth-of-type(2){
+            width: 200px;
+            height: 200px;
+            /* 设置形状--设置形状为圆形 */
+            background: radial-gradient(circle,skyblue,green);
+        }
+        div:nth-of-type(3){
+            width: 200px;
+            height: 200px;
+            /* 设置方向坐标--设置在左上角 */
+            background: radial-gradient(at left top,pink,black);
+        }
+        div:nth-of-type(4){
+            width: 200px;
+            height: 200px;
+            /* 设置数值坐标--设置在左边水平中心，等价于at left center */
+            background: radial-gradient(at 0px 100px,blue,black);
+        }
+        div:nth-of-type(5){
+            width: 200px;
+            height: 200px;
+            /* 形状和尺寸同时设置--与div2比较，有一圈明显的边界 */
+            background: radial-gradient(circle  closest-side, skyblue,green);
+        }
+        div:nth-of-type(6){
+            width: 200px;
+            height: 200px;
+            /* 形状，尺寸和坐标同时设置--圆心在左上角(离左边和上边各50px),有一圈边界，向最近边渐变*/
+            background: radial-gradient(circle closest-side at 50px 50px,red,blue);
+        }
+        div:nth-of-type(7){
+            width: 200px;
+            height: 200px;
+            /* 形状，尺寸和坐标同时设置--圆心在左上角(离左边和上边各50px),有一圈边界，向最远边渐变*/
+            background: radial-gradient(circle farthest-side at 50px 50px,red,blue);
+        }
+        div:nth-of-type(8){
+            width: 200px;
+            height: 200px;
+            /* 形状，尺寸和坐标同时设置--圆心在右下角(离右边和下边各50px),有一圈边界，向最近角渐变 */
+            background: radial-gradient(circle closest-corner at 150px 150px,red,blue);
+        }
+        div:nth-of-type(9){
+            width: 200px;
+            height: 200px;
+            /* 形状，尺寸和坐标同时设置--圆心在右下角(离右边和下边各50px),有一圈边界，向最远角渐变 */
+            background: radial-gradient(circle farthest-corner at 150px 150px,red,blue);
+        }
+        /* 最后四组可相互对比，发现设置尺寸的区别      边较与角来说界限较为清晰，但以及模糊 */
+        div:nth-of-type(10){
+            width: 200px;
+            height: 200px;
+            /* 设置颜色的位置 */
+            background: radial-gradient(red,red 50%,blue 50%,blue);
+            /* 最远角--占对角线的一半 */
+            background: radial-gradient(circle closest-corner at left top,red,red 50%,blue 50%,blue);
+            /* 最远边--占边的一半 */
+            background: radial-gradient(circle farthest-side at left top,red,red 50%,blue 50%,blue);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

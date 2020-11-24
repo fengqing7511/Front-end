@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线性渐变</title>
+    <!-- 线性渐变：不是一个单一的结构，它所产生的是图像，所以使用的background -->
+    <!-- 格式：background:linear-gradient(渐变方向，颜色1 位置，颜色2 位置，......) -->
+    <!-- 支持的方向:
+                 * to top:0deg
+				 * to right:90deg
+				 * to bottom:180deg - 默认值
+                 * to ldft:270deg
+    -->
+    <style>
+        .d1{
+            width:600px;
+            height: 100px;
+            background: linear-gradient(to left,skyblue,green);
+        }
+        .d2{
+            width:600px;
+            height: 100px;
+            background: linear-gradient(to top,red 0%,red 30%,green 30%,green 60%,blue 60%,blue 100% );
+        }
+        .d3{
+            width:600px;
+            height: 100px;
+            background: linear-gradient(to right,skyblue 0%,green 50%,purple 100%);
+        }
+        /* 支持的方向还包括角度 0deg-图形水平中线，度数增加，水平中线按顺指针转动，90deg为竖直中线，以此类推 */
+        .d4{
+            width:300px;
+            height: 300px;
+            background: linear-gradient(45deg,pink ,green);
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div><br/>
+    <div class="d2"></div><br/>
+    <div class="d3"></div><br/>
+    <div class="d4"></div>
+</body>
+</html>

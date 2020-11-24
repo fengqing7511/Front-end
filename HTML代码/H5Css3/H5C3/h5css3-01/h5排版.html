@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h5排版</title>
+    <style>
+        header{
+            display: block;                 /*第二步*/
+            background-color: red;  
+        }
+        nav{
+            display: block;                 /*第二步*/
+            background-color: green;
+        }
+        main{
+            display: block;                 /*第二步*/
+        }
+        main>article{
+            float: left;
+            width: 80%;
+            height: 200px;
+            background-color: pink;
+        }
+        main>aside{
+            float: right;
+            width: 20%;
+            height: 200px;
+            background-color: purple;
+        }
+        footer{
+            display: block;                   /*第二步*/
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- ie8及以下不兼容h5，解决方法：
+        第一步：创立标签(行内元素)
+             1.手动创立:document.createElement("标签名")
+             2.引入插件
+        第二步:将创立的标签转化为块级元素 -->
+    <script>
+        // 1.手动创建标签
+        document.createElement("header");
+    </script>
+    <script src="html5shiv.min.js"></script>     <!--2.引入插件-->
+    <header>头部</header>
+    <nav>导航</nav>
+    <main>
+        <article>body左边</article>
+        <aside>body右边</aside>
+    </main>
+    <footer>页脚</footer>
+</body>
+</html>

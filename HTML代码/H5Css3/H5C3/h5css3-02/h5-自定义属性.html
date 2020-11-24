@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h5-自定义属性</title>
+    <!--
+			自定义属性格式
+			规范:
+			1.data-开头
+			2.data-后面必须至少有一个字符,多个单词可以使用-连接
+			
+			建议:
+			1.名称应该都是小写,不要包含任何的大写字母
+			2.名称中不要有任何的特殊符号
+			3.名称不要纯数字
+		-->
+</head>
+<body>
+    <p data-onelabel="p1">第一个p标签</p>
+    <p data-twolabel="p2">第二个p标签</p>
+    <p data-threelabel="p3">第三个p标签</p>
+    <div data-one-label="div1">第一个div标签</div>
+</body>
+<script>
+        window.onload=function(){
+            //有多个相同标签时，先使用querySelector获取到所有相同的标签，再用下标获取到对应的标签
+            var p1=document.querySelectorAll("p")[0];
+            var p2=document.querySelectorAll("p")[1];
+            var p3=document.querySelectorAll("p")[2];
+           
+            var pvalue1=p1.dataset["onelabel"];
+            console.log(pvalue1);
+
+            var div=document.querySelector("div");
+            var dvalue=div.dataset["oneLabel"];              //data-后面的单词使用驼峰命名法(camel)连接:必须使用camel命名法来获取,否则可能会获取不到值
+            var dvalue2=div.dataset["onelabel"];             //未使用camel命名
+            console.log(dvalue,dvalue2);                     //div1   undefined
+        };
+</script>
+</html>

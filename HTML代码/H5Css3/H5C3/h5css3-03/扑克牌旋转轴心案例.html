@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扑克牌旋转轴心案例</title>
+    <style>
+        div{
+            width: 155px;
+            height: 219px;
+            overflow: hidden;
+            margin: 250px 500px;
+        }
+        img{
+            width: 155px;
+            height: 219px;
+            position: absolute;                      /*使多个元素可以同时放在一个div块中*/
+            transform-origin: right top;             /*设置旋转轴心*/
+            transition: transform 2s;                /*添加过渡效果*/
+        }
+        div:hover img:nth-of-type(1){
+            transform: rotate(60deg) ;
+        }
+        div:hover img:nth-of-type(2){
+            transform: rotate(120deg) ;
+        }
+        div:hover img:nth-of-type(3){
+            transform: rotate(180deg);
+        }
+        div:hover img:nth-of-type(4){
+            transform:  rotate(240deg)  ;
+        }
+        div:hover img:nth-of-type(5){
+            transform: rotate(300deg) ;
+        }
+        div:hover img:nth-of-type(6){
+            transform: rotate(360deg) ;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/pk1.png" alt="" />
+        <img src="images/pk2.png" alt="" />
+        <img src="images/pk1.png" alt="" />
+        <img src="images/pk2.png" alt="" />
+        <img src="images/pk1.png" alt="" />
+        <img src="images/pk2.png" alt="" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form表单-属性及事件</title>
+    <style>
+        table{
+            /* h5中table的居中显示用margin：auto；h4中的align="center"不一定兼容 */
+            margin: auto;
+            border: 1px solid skyblue;
+            /* 不用设置高度，会自动撑开 */
+            width: 500px;
+        }
+        .img{
+            text-align: center;
+            width: 500px;
+        }
+        form{
+            /* 与内部表格设置相同的样式 */
+            margin: auto;
+            width: 500px;
+        } 
+        .city{
+            width: 100px;
+            height: 13px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 部分类型是针对移动设备生效的，且具有一定的兼容性，如：tel。在实际应用当中可选择性的使用。 -->
+    <form action="" method="GET" id="bigForm">
+        <!-- fieldset标签将表单内容进行打包，生成一组相关表单的字段。浏览器会以特殊方式来显示它们，
+             它们可能有特殊的边界、3D效果，或者甚至可创建一个子表单来处理这些元素。
+        -->
+    <fieldset>
+            <!-- legend元素为fieldset元素定义标题 -->
+            <legend>学生档案</legend>
+    <table  cellspacing="0" cellpadding="10">
+        <!-- 这里的id用于获取外部的标签中的form属性 -->
+        <tr>
+            <td>姓名：</td>
+            <!-- autofocus:页面加载时自动获取焦点 -->
+            <!-- required:必须输入,如果没有输入会阻止当前提交数据 -->
+            <!-- 
+                 autocomplete:缓存输入过的内容，默认打开-on
+                 1.当前添加autocomplete的元素必须有name属性
+                 2.必须成功提交过:提交过才会记录 
+                 autocomplete标签即可用于整个form表单中，也可仅用于当前input控件中
+            -->
+            <!-- type="text"为默认情况 -->
+            <td><input type="text" class="name" name="name" autofocus autocomplete="off" required/></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <!-- password:密码框  输入的内容会隐藏显示 -->
+            <!-- maxlength:支持输入文本的最大长度 -->
+            <td><input type="password" maxlength="15"/></td>
+        </tr>
+        <tr>
+            <td>密码强度：</td>
+            <!-- progress:定义任何类型的任务的进度 -->
+            <!-- 默认max为1，value为默认进度 -->
+            <td><progress max="100" value="80"></progress></td>
+        </tr>
+        <tr>
+            <td>入学成绩：</td>
+            <!-- meter:度量器，可用于标示级别 -->
+            <!-- max:最大值(默认为1) min:最小值(默认为0) high:定义界点为高的度量值 
+                 low:定义界点为低的度量值  value:定义度量的值-->
+            <td><meter max="150" min="0" high="150" low="90" value="20"></meter></td>
+        </tr>
+        <tr>
+            <td>年龄：</td>
+            <!-- number:只能输入数字(包含小数点),不能输入其他字符 -->
+            <!-- max:支持的最大值,min:支持的最小值,value:默认值 -->
+            <td><input type="number" name="age" min="0" max="150"/></td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <!-- 通过label标签中的for属性来绑定input框--for中的属性值与input框中的id名相同 -->
+            <!-- 效果：点击汉字自动选中input框 -->
+            <td>
+                <!-- radio：单选框  各个值之间互斥，要有相同的name值-->
+                <!-- checked为默认选中 -->
+                <input type="radio" name="sex" id="male" checked/><label for="male">男</label>
+                <input type="radio" name="sex" id="female"/><label for="female">女</label>
+            </td>
+        </tr>
+        <tr>
+            <td>爱好：</td>
+            <td>
+                <!-- Checkbox:复选框  使用相同的name值，可以进行多选-->
+                <!-- checked为默认选中 -->
+                <input type="checkbox" name="hobby" id="eat" checked/><label for="eat">吃饭</label>
+                <input type="checkbox" name="hobby" id="sleep"/><label for="sleep">睡觉</label>
+                <input type="checkbox" name="hobby" id="drink"/><label for="drink">喝酒</label>
+            </td>
+        </tr>
+        <tr>
+            <td>手机号码：</td>
+            <!-- pattern:正则表达式验证 -->
+            <!-- tel:仅仅支持移动端数字键(移动端点击输入时会自动弹出数字键盘) -->
+            <!-- required:必须填入，否则阻止提交 -->
+            <td><input type="tel" class="phonenum" pattern="^1\d{10}$" required/></td>
+        </tr>
+        <tr>
+            <td>学校网址：</td>
+            <!-- placeholder:提示文本,不占用字符串 -->
+            <!-- 验证输入合法的网址: http(s)://开头 -->
+            <td><input type="url" class="schoolurl" placeholder="输入以http(s)为开头的网址"/></td>
+        </tr>
+        <tr>
+            <td>邮箱：</td>
+            <!-- email内部封装了正则表达式,要求必须包含@,同时必须包含邮箱域名,否则会阻止提交 -->
+            <!-- multiple属性用于多个文本的提交,中间使用逗号隔开 -->
+            <td><input type="email" pattern="/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/"  multiple/></td>
+        </tr>
+        <tr>
+            <td>健康范围：</td>
+            <td><input type="range" value="10"/></td>
+        </tr>
+        <tr>
+            <td>喜欢颜色：</td>
+            <td><input type="color"/></td>
+        </tr>
+        <tr>
+            <td>地址：</td>
+            <td>
+                <!-- select:下拉框(行内块元素)  option为子标签-->
+                <select>
+                     <!-- 注:select下拉框中的值是写在option标签之间的 -->
+                    <option>选择省份：</option>
+                    <option>安徽省</option>
+                    <option>湖南省</option>
+                </select>
+                <!-- datalist:类似于拥有输入功能的下拉列表,但需要与input框配合使用-->
+                <!-- datalist中的id名要与input中list的属性值相同 -->
+                <input type="text" class="city" list="citylist" placeholder="选择市区:">
+                <datalist id="citylist">
+                    <!-- 注:datalist下拉框中的值是写在option标签中的value值中的 -->
+                    <option value="苏州市"></option>
+                    <option value="合肥市"></option>
+                    <option value="南京市"></option>
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+            <td>注册时月份：</td>
+            <td><input type="month"/></td>
+        </tr>
+        <tr>
+            <td>注册时星期：</td>
+            <td><input type="week"/></td>
+        </tr>
+        <tr>
+            <!-- date:日期(年-月-日) -->
+            <td>注册日期：</td>
+            <td><input type="date"/></td>
+        </tr>
+        <tr>
+            <td>注册时间：</td>
+            <!-- time:时间(时-分) -->
+            <td><input type="time"/></td>
+        </tr>
+        <!-- <tr>
+            仅支持屏幕阅读器,大多数浏览器不支持
+            <td>注册日期：</td>
+            <td><input type="datetime"/></td>
+        </tr> -->
+        <tr>
+            <!-- 当前网页上的日期时间(年-月-日-时-分) -->
+            <td>注册精确时间：</td>
+            <td><input type="datetime-local"/></td>
+        </tr>
+        <tr>
+            <td>信息搜索：</td>
+            <td><input type="search" placeholder="输入关键字"/></td>
+        </tr>
+        <tr>
+            <td>照片上传：</td>
+            <!-- file:文件上传 -->
+            <!-- multiple:此处可以进行多个文件上传 -->
+            <td><input type="file" multiple></td>
+        </tr>
+        <tr>
+            <td>自我简介：</td>
+            <!-- textarea:文本域 -->
+            <!-- 注:文本域从开始标签后就开始计算字符，包括空格也算 -->
+            <td><textarea cols="30" rows="5"></textarea></td>
+        </tr>
+        <tr>
+            <td>功能控制：</td>
+            <td>
+                <!-- button:普通按钮 -->
+                <input type="button" value="注册按钮"/>
+                <!-- submit:提交按钮  用于将数据提交给后台 -->
+                <input type="submit" value="提交按钮"/>
+                <!-- reset:重置按钮   将表单数据全部清空 -->
+                <input type="reset" value="重置按钮"/>
+            </td>
+        </tr>
+        <tr>
+            <!-- colspan:合并列 -->
+            <!-- image:图片按钮  与插入图片效果相同 -->
+            <td colspan="2"><input type="image" src="风景.png" class="img"/></td>
+        </tr>
+    </table>
+    </fieldset>
+    </form>
+        <br/><br/>
+        <table>
+            <!-- 下面的控件不包含在form表单中,默认的情况下点击提交按钮数据不会提交 -->
+        <tr>
+            <td>form外控件：</td>
+            <!-- 但是可以使用form属性将自己与form表单绑定,一同提交,前提是与form表单中的id一致 -->
+            <!-- 注：最好有name属性，虽然也可以传递给后台，但在页面网址上无法显示接收 -->
+            <!-- required:必须填入，否则阻止提交 autocomplete：是否将提交成功的数据进行缓存-->
+            <td><input name="extra" form="bigForm" required autocomplete="off" /></td>
+        </tr>
+        </table>
+        
+</body>
+<script>
+    //h5中form表单新增的事件如下
+
+    //querySelector()用于获取选择器或者标签，泛用性广(重点)
+    // oninput：监听当前指定元素内容改变的事件:只要内容改变(添加,删除),就会触发这个事件，可用于移动端输入字数统计
+    document.querySelector(".name").oninput=function(){
+        console.log("当前输入的姓名为:"+this.value);
+    };
+
+    //onkeyup:键盘抬起事件 键盘每次抬起都会触发事件  与oninput监听事件相似
+    document.querySelector(".schoolurl").onkeyup=function(){
+        console.log("当前输入的网址为:"+this.value);
+    };
+
+    //oninvalid:验证不通过的时候触发 可以改变系统提示的内容 更加人性化
+    document.querySelector(".phonenum").oninvalid=function(){
+        this.setCustomValidity("请输入以1为开头的11位手机号码!");
+    };
+</script>
+</html>

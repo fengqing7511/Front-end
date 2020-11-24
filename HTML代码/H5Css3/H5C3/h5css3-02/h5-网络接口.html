@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h5-网络接口</title>
+    <!-- 网络接口用于监听浏览器是否接通网络,通常用于底层判断(打开某个网站的时候,是否能连上网络) -->
+</head>
+<body>
+	<script type="text/javascript">
+		/* 1.ononline:网络连接成功的时候触发这个事件 */
+		window.addEventListener("online",function(){
+			alert("网络连接成功!");
+		});
+			
+		/* 2.onoffline:网络连接失败的时候触发 */
+		window.addEventListener("offline",function(){
+			alert("网络连接失败!");
+		});
+	</script>
+</body>
+</html>
